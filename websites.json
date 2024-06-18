@@ -1,0 +1,47 @@
+{
+    "sources": [
+        {
+            "url": "https://101cookbooks.com",
+            "root": "https://www.101cookbooks.com"
+        },
+        {
+            "url": "https://aberlehome.com",
+            "root": "https://aberlehome.com/category/recipes/"
+        },
+        {
+            "url": "https://abuelascounter.com/",
+            "root": "https://abuelascounter.com/recipe-index/"
+        },
+        {
+            "url": "https://www.acouplecooks.com/",
+            "root": "https://www.acouplecooks.com/category/recipes/"
+        },
+        {
+            "url":"https://addapinch.com",
+            "root": "https://addapinch.com/category/all-recipes/"
+        },
+        {
+            "url":"http://www.afghankitchenrecipes.com/",
+            "root":"http://www.afghankitchenrecipes.com/"
+        },
+        {
+            "url":"https://aflavorjournal.com/",
+            "root":"https://aflavorjournal.com/all-recipes/"
+        },
+        {
+            "url": "https://www.aldi.us/recipes/",
+            "root": "https://www.aldi.us/recipes/"
+        },
+        
+        {
+            "url": "https://en.wikibooks.org",
+            "root": "https://en.wikibooks.org/wiki/Category:Recipes",
+            "recipe_prefix": "https://en.wikibooks.org/wiki/Cookbook"
+        },
+        {
+            "url": "https://www.allrecipes.com",
+            "root": "https://www.allrecipes.com/recipes/",
+            "recipe_prefix": "https://www.allrecipes.com/recipe"
+        }
+    ]
+}
