@@ -14,7 +14,12 @@ https://www.justtherecipe.com/
 - [ ] scrape recipes
 - [ ] come up with a filesystem schema with checkpoints
 
-rules:
-- look for recipe prefix (this is faster since we don't need to load the recipe link)
-- look for yoast-schema-graph type="application/ld+json"
+### Recipe Scraping basics
+
+There are two ways I know that you can tell if a url is a valid recipe:
+
+1. The url prefix is known to correspond to a recipe. For example if a url has the prefix https://www.allrecipes.com/recipe/ 
+2. Look for script tags with type "application/ld+json". These script tags should have a schema in the class that matches a commonly-used recipe schema like "yoast-schema-graph" or a proprietary one like "allrecipes-schema"
+
+
 

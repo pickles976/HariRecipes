@@ -6,14 +6,14 @@ from urllib.parse import urlparse
 
 # We should easily find all recipes above this depth
 DEPTH_LIMIT = 10
-CHECKPOINT = 5000
+CHECKPOINT = 1000
 
 def read_url(url: str) -> str:
     page = urlopen(url)
     html_bytes = page.read()
     return html_bytes.decode("utf-8")
 
-class Walker:
+class Spider:
 
     def __init__(self, url: str, root_url: str, recipe_url: Optional[str] = None, recipe_schema: Optional[str] = None) -> None:
         """"""
@@ -74,7 +74,7 @@ class Walker:
             if not self.url in link_url:
                 continue
 
-            
+            # If a prefix URL is not sufficient to identify link as a valid recipe
             if self.recipe_url is None:
                 stack.append(link_url)
                 continue
@@ -96,15 +96,15 @@ class Walker:
     def start(self):
         self.walk_page(self.root_url)
 
-walker = Walker(
+spider = Spider(
     url="https://www.allrecipes.com/",
     root_url="https://www.allrecipes.com/recipes/",
     recipe_url="https://www.allrecipes.com/recipe/",
     # recipe_schema="allrecipes-schema"
 )
-walker.start()
+spider.start()
 
-print(f"Found: {len(walker.visited)} links!")
-print(f"Found: {len(walker.recipes)} recipes!")
+print(f"Found: {len(spider.visited)} links!")
+print(f"Found: {len(spider.recipes)} recipes!")
 
-walker.checkpoint()
+spider.checkpoint()
