@@ -40,9 +40,21 @@ class Spider:
         if self.recipe_schema is None and self.recipe_prefix is None:
             raise Exception("Must provide either Recipe URL Prefix or Recipe Schema!")
         
-        self.visited = set()
+        self.seen = set()
         self.recipes = set()
         self.domain = urlparse(url).netloc
+
+    def should_ignore_link(self, url: str) -> bool:
+
+        # Ignore login/logout pages
+        if "authentication" in url:
+            return True
+        
+        # Ignore links from different websites
+        if not self.url in url:
+            return True
+        
+        return False
         
     def checkpoint(self):
         """Save the recipes at the current checkpoint"""
@@ -51,9 +63,9 @@ class Spider:
             writer = csv.writer(f, delimiter='\n')
             writer.writerows([list(self.recipes)])
 
-        with open(f"./data/{self.domain}_links_{len(self.visited)}.csv", "w") as f:
+        with open(f"./data/{self.domain}_links_{len(self.seen)}.csv", "w") as f:
             writer = csv.writer(f, delimiter='\n')
-            writer.writerows([list(self.visited)])
+            writer.writerows([list(self.seen)])
 
     def add_recipe(self, recipe_url: str):
         print(f"RECIPE: {recipe_url}")
@@ -106,14 +118,17 @@ class Spider:
 
             if link_url is None:
                 continue
-
-            # Ignore visited links
-            if link_url in self.visited:
+            
+            # Filter out authentication, etc
+            if self.should_ignore_link(link_url):
                 continue
 
-            # Ignore links from different websites
-            if not self.url in link_url:
+            # Ignore previously visited links
+            if link_url in self.seen:
                 continue
+
+            # Mark link as seen
+            self.seen.add(link_url)
 
             # If a prefix URL is not sufficient to identify link as a valid recipe
             if self.recipe_prefix is None:
@@ -122,14 +137,11 @@ class Spider:
         
             # URL is a recipe
             if self.recipe_prefix in link_url:
-                self.visited.add(link_url)
                 self.add_recipe(link_url)
             else:
                 stack.append(link_url)
 
         for link in stack:
-            self.visited.add(link)
-
             self.walk_page(link, depth+1)
 
     def start(self):
