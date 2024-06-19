@@ -3,14 +3,15 @@
 https://www.justtherecipe.com/
 
 [Recipe Scrapers](https://github.com/hhursev/recipe-scrapers)
+[Semantic Search](https://subirverma.medium.com/semantic-search-with-s-bert-is-all-you-need-951bc710e160)
 
 - [x] come up with a recipe scraping strategy
 - [x] cap at 100 recipes and play around with different strategies
 - [x] generalize recipe walker algorithm
-- [ ] find schemas for the websites in websites.json
+- [x] switch from dict for visited to set() for visited
+- [x] switch from json to csv for recipes
 
-- [ ] switch from dict for visited to set() for visited
-- [ ]  switch from json to csv for recipes
+- [ ] find schemas for the websites in websites.json
 
 - [ ] get all recipe links for allrecipes.com
 - [ ] figure out how long it will take to scrape

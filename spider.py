@@ -1,4 +1,5 @@
 import json
+import csv
 from typing import Optional
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
@@ -39,25 +40,25 @@ class Spider:
         if self.recipe_schema is None and self.recipe_prefix is None:
             raise Exception("Must provide either Recipe URL Prefix or Recipe Schema!")
         
-        self.visited = {}
-        self.recipes = {}
-        self.total = 1
+        self.visited = set()
+        self.recipes = set()
         self.domain = urlparse(url).netloc
         
     def checkpoint(self):
         """Save the recipes at the current checkpoint"""
         print("CHECKPOINT REACHED! SAVING...")
-        with open(f"./data/{self.domain}_recipes_{self.total}.json", "w") as f:
-            json.dump(self.recipes, f)
+        with open(f"./data/{self.domain}_recipes_{len(self.recipes)}.csv", "w") as f:
+            writer = csv.writer(f, delimiter='\n')
+            writer.writerows([list(self.recipes)])
 
-        with open(f"./data/{self.domain}_links_{self.total}.json", "w") as f:
-            json.dump(self.visited, f)
+        with open(f"./data/{self.domain}_links_{len(self.visited)}.csv", "w") as f:
+            writer = csv.writer(f, delimiter='\n')
+            writer.writerows([list(self.visited)])
 
     def add_recipe(self, recipe_url: str):
         print(f"RECIPE: {recipe_url}")
-        self.recipes[recipe_url] = True
-        self.total += 1
-        if self.total % CHECKPOINT == 0:
+        self.recipes.add(recipe_url)
+        if len(self.recipes) % CHECKPOINT == 0:
             self.checkpoint()
 
     # DFS walker
@@ -110,13 +111,13 @@ class Spider:
         
             # URL is a recipe
             if self.recipe_prefix in link_url:
-                self.visited[link_url] = True
+                self.visited.add(link_url)
                 self.add_recipe(link_url)
             else:
                 stack.append(link_url)
 
         for link in stack:
-            self.visited[link] = True
+            self.visited.add(link)
 
             self.walk_page(link, depth+1)
 
