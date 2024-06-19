@@ -68,15 +68,20 @@ class Spider:
         current_page = read_url(url)
         soup = BeautifulSoup(current_page, 'html.parser')
 
+        # Check if a script tag with the recipe schema exists
         if self.recipe_schema is not None:
-            # Check if a script tag with the recipe schema exists
             scripts = soup.find_all('script', type="application/ld+json")
-            for item in scripts:
-                if self.recipe_schema in item.get("class"):
-                    print(f"RECIPE: {url}")
-                    self.recipes[url] = True
-                    self.total += 1
 
+            try:
+                for item in scripts:
+                    if self.recipe_schema in item.get("class"):
+                        print(f"RECIPE: {url}")
+                        self.recipes[url] = True
+                        self.total += 1
+            except Exception as e:
+                print(f"Failed with Exception: {e}")
+
+        # Loop over every link on the page
         for link in soup.find_all('a'):
 
             link_url = link.get('href')
