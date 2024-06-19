@@ -15,19 +15,34 @@ def read_url(url: str) -> str:
 
 class Spider:
 
-    def __init__(self, url: str, root_url: str, recipe_url: Optional[str] = None, recipe_schema: Optional[str] = None) -> None:
-        """"""
+    def __init__(
+            self, 
+            url: str,
+            root_url: str, 
+            recipe_prefix: Optional[str] = None, 
+            recipe_schema: Optional[str] = None
+        ) -> None:
+        """
+        An object for web scraping. Tracks visited links and identified recipes.
+
+        Parameters:
+            url (str): base url of the website
+            root (str): url to start crawling from (often different from the website url)
+            recipe_prefix (Optional[str]): prefix to a url that is only used for recipes
+            recipe_schema (Optional[str]): schema class that identifies a page as a recipe or not
+        """
+        self.url = url
+        self.root_url = root_url
+        self.recipe_prefix = recipe_prefix
+        self.recipe_schema = recipe_schema
+
+        if self.recipe_schema is None and self.recipe_prefix is None:
+            raise Exception("Must provide either Recipe URL Prefix or Recipe Schema!")
+        
         self.visited = {}
         self.recipes = {}
         self.total = 1
         self.domain = urlparse(url).netloc
-        self.url = url
-        self.root_url = root_url
-        self.recipe_url = recipe_url
-        self.recipe_schema = recipe_schema
-
-        if self.recipe_schema is None and self.recipe_url is None:
-            raise Exception("Must provide either Recipe URL or Recipe Schema!")
         
     def checkpoint(self):
         """Save the recipes at the current checkpoint"""
@@ -75,12 +90,12 @@ class Spider:
                 continue
 
             # If a prefix URL is not sufficient to identify link as a valid recipe
-            if self.recipe_url is None:
+            if self.recipe_prefix is None:
                 stack.append(link_url)
                 continue
         
             # URL is a recipe
-            if self.recipe_url in link_url:
+            if self.recipe_prefix in link_url:
                 print(f"RECIPE: {link_url}")
                 self.recipes[link_url] = True
                 self.visited[link_url] = True
@@ -96,15 +111,16 @@ class Spider:
     def start(self):
         self.walk_page(self.root_url)
 
-spider = Spider(
-    url="https://www.allrecipes.com/",
-    root_url="https://www.allrecipes.com/recipes/",
-    recipe_url="https://www.allrecipes.com/recipe/",
-    # recipe_schema="allrecipes-schema"
-)
-spider.start()
+if __name__ == "__main__":
+    spider = Spider(
+        url="https://www.allrecipes.com/",
+        root_url="https://www.allrecipes.com/recipes/",
+        recipe_prefix="https://www.allrecipes.com/recipe/",
+        # recipe_schema="allrecipes-schema"
+    )
+    spider.start()
 
-print(f"Found: {len(spider.visited)} links!")
-print(f"Found: {len(spider.recipes)} recipes!")
+    print(f"Found: {len(spider.visited)} links!")
+    print(f"Found: {len(spider.recipes)} recipes!")
 
-spider.checkpoint()
+    spider.checkpoint()
