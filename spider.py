@@ -81,12 +81,23 @@ class Spider:
         if self.recipe_schema is not None:
             scripts = soup.find_all('script', type="application/ld+json")
 
-            try:
-                for item in scripts:
-                    if self.recipe_schema in item.get("class"):
-                        self.add_recipe(url)
-            except Exception as e:
-                print(f"Failed with Exception: {e}")
+            for item in scripts:
+                script_class = item.get("class")
+
+                if script_class is None:
+                    continue
+
+                # Check for Recipe tag
+                if self.recipe_schema in script_class:
+                    try:
+                        data = json.loads(item.text)
+
+                        for item in data:
+                            if "@type" in item and "Recipe" in item["@type"]:
+                                self.add_recipe(url)
+                                break
+                    except Exception as e:
+                        print(f"Failed to parse script text with exception: {e}")
 
         # Loop over every link on the page
         for link in soup.find_all('a'):
@@ -129,7 +140,7 @@ if __name__ == "__main__":
         url="https://www.allrecipes.com/",
         root_url="https://www.allrecipes.com/recipes/",
         recipe_prefix="https://www.allrecipes.com/recipe/",
-        # recipe_schema="allrecipes-schema"
+        recipe_schema="allrecipes-schema"
     )
     spider.start()
 
