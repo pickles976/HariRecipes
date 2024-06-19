@@ -5,10 +5,11 @@ https://www.justtherecipe.com/
 [Recipe Scrapers](https://github.com/hhursev/recipe-scrapers)
 
 - [x] come up with a recipe scraping strategy
-- [ ] cap at 100 recipes and play around with different strategies
-- [ ] generalize recipe walker algorithm
+- [x] cap at 100 recipes and play around with different strategies
+- [x] generalize recipe walker algorithm
+- [ ] find schemas for the websites in websites.json
 
-- [ ] find all recipe links for allrecipes.com
+- [ ] get all recipe links for allrecipes.com
 - [ ] figure out how long it will take to scrape
 - [ ] scrape recipes
 - [ ] come up with a filesystem schema with checkpoints

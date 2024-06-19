@@ -18,7 +18,8 @@
         },
         {
             "url":"https://addapinch.com",
-            "root": "https://addapinch.com/category/all-recipes/"
+            "root": "https://addapinch.com/category/all-recipes/",
+            "recipe_schema": "yoast-schema-graph"
         },
         {
             "url":"http://www.afghankitchenrecipes.com/",
@@ -41,7 +42,8 @@
         {
             "url": "https://www.allrecipes.com",
             "root": "https://www.allrecipes.com/recipes/",
-            "recipe_prefix": "https://www.allrecipes.com/recipe"
+            "recipe_prefix": "https://www.allrecipes.com/recipe",
+            "recipe_schema": "allrecipes-schema"
         }
     ]
 }
