@@ -9,10 +9,17 @@ https://www.justtherecipe.com/
 - [x] generalize recipe walker algorithm
 - [ ] find schemas for the websites in websites.json
 
+- [ ] switch from dict for visited to set() for visited
+- [ ]  switch from json to csv for recipes
+
 - [ ] get all recipe links for allrecipes.com
 - [ ] figure out how long it will take to scrape
 - [ ] scrape recipes
 - [ ] come up with a filesystem schema with checkpoints
+- [ ] put documents in sqlite
+- [ ] try to make sqlite searchable? How about a tokenizer and similarity searches?
+
+- [ ] [tf-idf](https://github.com/gautamdasika/Document-Search-Engine/blob/master/finalsearch.py)
 
 ### Recipe Scraping basics
 

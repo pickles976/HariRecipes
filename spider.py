@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 
 # We should easily find all recipes above this depth
 DEPTH_LIMIT = 10
-CHECKPOINT = 1000
+CHECKPOINT = 5000
 
 def read_url(url: str) -> str:
     page = urlopen(url)
@@ -53,19 +53,27 @@ class Spider:
         with open(f"./data/{self.domain}_links_{self.total}.json", "w") as f:
             json.dump(self.visited, f)
 
+    def add_recipe(self, recipe_url: str):
+        print(f"RECIPE: {recipe_url}")
+        self.recipes[recipe_url] = True
+        self.total += 1
+        if self.total % CHECKPOINT == 0:
+            self.checkpoint()
+
     # DFS walker
     def walk_page(self, url: str, depth: int=0):
 
         if depth > DEPTH_LIMIT:
             return
 
-        if self.total % CHECKPOINT == 0:
-            self.checkpoint()
-
         print(url)
         stack = []
 
-        current_page = read_url(url)
+        try:
+            current_page = read_url(url)
+        except Exception as e:
+            print(f"Failed to reach url with exception: {e}")
+
         soup = BeautifulSoup(current_page, 'html.parser')
 
         # Check if a script tag with the recipe schema exists
@@ -75,9 +83,7 @@ class Spider:
             try:
                 for item in scripts:
                     if self.recipe_schema in item.get("class"):
-                        print(f"RECIPE: {url}")
-                        self.recipes[url] = True
-                        self.total += 1
+                        self.add_recipe(url)
             except Exception as e:
                 print(f"Failed with Exception: {e}")
 
@@ -85,6 +91,9 @@ class Spider:
         for link in soup.find_all('a'):
 
             link_url = link.get('href')
+
+            if link_url is None:
+                continue
 
             # Ignore visited links
             if link_url in self.visited:
@@ -101,10 +110,8 @@ class Spider:
         
             # URL is a recipe
             if self.recipe_prefix in link_url:
-                print(f"RECIPE: {link_url}")
-                self.recipes[link_url] = True
                 self.visited[link_url] = True
-                self.total += 1
+                self.add_recipe(link_url)
             else:
                 stack.append(link_url)
 
