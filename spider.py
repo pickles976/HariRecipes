@@ -86,6 +86,7 @@ class Spider:
             current_page = read_url(url)
         except Exception as e:
             print(f"Failed to reach url with exception: {e}")
+            return
 
         soup = BeautifulSoup(current_page, 'html.parser')
 
@@ -147,6 +148,8 @@ class Spider:
     def start(self):
         self.walk_page(self.root_url)
 
+from datetime import datetime
+
 if __name__ == "__main__":
     spider = Spider(
         url="https://www.allrecipes.com/",
@@ -154,9 +157,12 @@ if __name__ == "__main__":
         recipe_prefix="https://www.allrecipes.com/recipe/",
         recipe_schema="allrecipes-schema"
     )
-    spider.start()
 
-    print(f"Found: {len(spider.visited)} links!")
+    start = datetime.now()
+    spider.start()
+    print(f"Elapsed: {datetime.now() - start}")
+
+    print(f"Found: {len(spider.seen)} links!")
     print(f"Found: {len(spider.recipes)} recipes!")
 
     spider.checkpoint()

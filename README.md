@@ -39,6 +39,13 @@ This script will have a recipe metadata class, and the inner text will be a list
 
 ### TODO:
 
+allrecipes.com:
+```commandline
+Elapsed: 0:56:05.523423
+Found: 53107 links!
+Found: 36719 recipes!
+```
+
 #### Crawling
 - [x] come up with a recipe scraping strategy
 - [x] cap at 100 recipes and play around with different strategies
@@ -47,7 +54,7 @@ This script will have a recipe metadata class, and the inner text will be a list
 - [x] switch from json to csv for recipes
 
 #### Scraping
-- [ ] get all recipe links for allrecipes.com
+- [x] get all recipe links for allrecipes.com
 - [ ] figure out how long it will take to scrape
 - [ ] scrape recipes
 - [ ] come up with a filesystem schema with checkpoints
