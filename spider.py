@@ -3,7 +3,7 @@ import csv
 from typing import Optional
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
-from urllib.parse import urlparse
+import tldextract
 
 # We should easily find all recipes above this depth
 DEPTH_LIMIT = 10
@@ -21,7 +21,11 @@ class Spider:
             url: str,
             root_url: str, 
             recipe_prefix: Optional[str] = None, 
-            recipe_schema: Optional[str] = None
+            recipe_schema: Optional[str] = None,
+            ignore: Optional[list[str]] = None,
+            subdomain: Optional[str] = None,
+            *args,
+            **kwargs
         ) -> None:
         """
         An object for web scraping. Tracks visited links and identified recipes.
@@ -36,23 +40,30 @@ class Spider:
         self.root_url = root_url
         self.recipe_prefix = recipe_prefix
         self.recipe_schema = recipe_schema
-
-        if self.recipe_schema is None and self.recipe_prefix is None:
-            raise Exception("Must provide either Recipe URL Prefix or Recipe Schema!")
+        self.ignore = ignore
+        self.subdomain = subdomain
         
         self.seen = set()
         self.recipes = set()
-        self.domain = urlparse(url).netloc
+        self.domain = tldextract.extract(url).domain
+
+        print(f"Received extra arguments: {args} {kwargs}. Ignoring...")
 
     def should_ignore_link(self, url: str) -> bool:
-
-        # Ignore login/logout pages
-        if "authentication" in url:
+                
+        # Ignore links from different websites
+        if tldextract.extract(url).domain != self.domain:
             return True
         
-        # Ignore links from different websites
-        if not self.url in url:
-            return True
+        # Ignore subdomain if that matters
+        if self.subdomain is not None:
+            if tldextract.extract(url).subdomain != self.subdomain:
+                return True
+        
+        if self.ignore is not None:
+            for item in self.ignore:
+                if item in url:
+                    return True
         
         return False
         
@@ -91,26 +102,29 @@ class Spider:
         soup = BeautifulSoup(current_page, 'html.parser')
 
         # Check if a script tag with the recipe schema exists
-        if self.recipe_schema is not None:
-            scripts = soup.find_all('script', type="application/ld+json")
+        scripts = soup.find_all('script', type="application/ld+json")
 
-            for item in scripts:
-                script_class = item.get("class")
+        for item in scripts:
 
-                if script_class is None:
+            # Check that script has the correct class, if we provided a schema (saves us time)
+            if self.recipe_schema is not None:
+                if item.get("class") is None:
                     continue
 
-                # Check for Recipe tag
-                if self.recipe_schema in script_class:
-                    try:
-                        data = json.loads(item.text)
+            try:
+                data = json.loads(item.text)
 
-                        for item in data:
-                            if "@type" in item and "Recipe" in item["@type"]:
-                                self.add_recipe(url)
-                                break
-                    except Exception as e:
-                        print(f"Failed to parse script text with exception: {e}")
+                if isinstance(data, list):
+                    for item in data:
+                        if "@type" in item and "Recipe" in item["@type"]:
+                            self.add_recipe(url)
+                            break
+                else:
+                    if "@type" in data and "Recipe" in data["@type"]:
+                        self.add_recipe(url)
+                        break
+            except Exception as e:
+                print(f"Failed to parse script text with exception: {e}")
 
         # Loop over every link on the page
         for link in soup.find_all('a'):
@@ -119,6 +133,10 @@ class Spider:
 
             if link_url is None:
                 continue
+
+            # Handle routes
+            if tldextract.extract(link_url).domain == "":
+                link_url = self.url + link_url
             
             # Filter out authentication, etc
             if self.should_ignore_link(link_url):
@@ -147,22 +165,3 @@ class Spider:
 
     def start(self):
         self.walk_page(self.root_url)
-
-from datetime import datetime
-
-if __name__ == "__main__":
-    spider = Spider(
-        url="https://www.allrecipes.com/",
-        root_url="https://www.allrecipes.com/recipes/",
-        recipe_prefix="https://www.allrecipes.com/recipe/",
-        recipe_schema="allrecipes-schema"
-    )
-
-    start = datetime.now()
-    spider.start()
-    print(f"Elapsed: {datetime.now() - start}")
-
-    print(f"Found: {len(spider.seen)} links!")
-    print(f"Found: {len(spider.recipes)} recipes!")
-
-    spider.checkpoint()

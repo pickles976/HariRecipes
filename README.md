@@ -60,7 +60,12 @@ Found: 36719 recipes!
 - [ ] come up with a filesystem schema with checkpoints
 
 #### Collection
-- [ ] find schemas for the websites in websites.json
+- [x] find schemas for the websites in websites.json
+    - [x] 101cookbooks
+    - [x] abuelascounter
+    - [x] allrecipes
+    - [x] aldi
+ aldi- [ ] populate websites.json with field necessary for scraping
 
 #### Searching
 - [ ] put documents in sqlite
