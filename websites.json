@@ -12,21 +12,10 @@
             "root_url": "https://www.abuelascounter.com/recipe-index/"
         },
         {
-            "url": "https://www.acouplecooks.com/",
-            "root_url": "https://www.acouplecooks.com/category/recipes/"
-        },
-        {
-            "url": "https://www.addapinch.com",
-            "root_url": "https://www.addapinch.com/category/all-recipes/",
-            "recipe_schema": "yoast-schema-graph"
-        },
-        {
             "url": "http://www.afghankitchenrecipes.com/",
-            "root_url": "http://www.afghankitchenrecipes.com/"
-        },
-        {
-            "url": "https://www.aflavorjournal.com/",
-            "root_url": "https://www.aflavorjournal.com/all-recipes/"
+            "root_url": "http://www.afghankitchenrecipes.com/",
+            "recipe_prefix": "http://www.afghankitchenrecipes.com/recipe/",
+            "ignore": ["wp-content", "ingredient"]
         },
         {
             "url": "https://www.aldi.us/",
@@ -66,6 +55,36 @@
                 "ingredient"
             ]
         },
+        {
+            "url": "https://barefeetinthekitchen.com/",
+            "root_url": "https://barefeetinthekitchen.com/",
+            "recipe_schema": "yoast-schema-graph",
+            "ignore": ["#", "cdn", "swpmtx", "how", "wprm", "wp-content", ".html", "little-things"]
+        },
+
+        {
+            "url": "https://barefootcontessa.com/",
+            "root_url": "https://barefootcontessa.com/recipes",
+            "recipe_schema": "yoast-schema-graph",
+            "recipe_prefix": "https://barefootcontessa.com/recipes",
+            "ignore": ["search", "inas-world", "print", "shop"]
+        },
+        {
+            "url": "https://bbcgoodfood.com/",
+            "root_url": "https://www.bbcgoodfood.com/recipes",
+            "ignore": ["collection", "glossary", "howto", "review"]
+        },
+
+        {
+            "url": "https://bettycrocker.com/",
+            "root_url": "https://www.bettycrocker.com/recipes",
+            "ignore": ["user-profile", "products", "how-to"]
+        },
+
+
+
+
+
         {
             "url": "https://en.wikibooks.org",
             "root_url": "https://en.wikibooks.org/w/index.php?title=Category:Recipes&from=0",

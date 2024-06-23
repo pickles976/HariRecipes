@@ -14,7 +14,28 @@ def read_url(url: str) -> str:
     html_bytes = page.read()
     return html_bytes.decode("utf-8")
 
-class Spider:
+def is_json_recipe(data) -> bool:
+
+    # Type of recipe or article
+    if "@type" in data and (
+        "Recipe" in data["@type"]
+        # or "Article" in data["@type"]
+    ):
+        return True
+    
+    # Type of Recipe/Article is in graph
+    if "@graph" in data:
+        if isinstance(data["@graph"], list):
+            for item in data["@graph"]:
+                if "@type" in item and (
+                    "Recipe" in item["@type"]
+                    # or "Article" in item["@type"]
+                ):
+                    return True
+
+    return False
+
+class Spider: 
 
     def __init__(
             self, 
@@ -116,11 +137,11 @@ class Spider:
 
                 if isinstance(data, list):
                     for item in data:
-                        if "@type" in item and "Recipe" in item["@type"]:
+                        if is_json_recipe(item):
                             self.add_recipe(url)
                             break
                 else:
-                    if "@type" in data and "Recipe" in data["@type"]:
+                    if is_json_recipe(data):
                         self.add_recipe(url)
                         break
             except Exception as e:

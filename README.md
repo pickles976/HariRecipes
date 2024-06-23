@@ -63,9 +63,14 @@ Found: 36719 recipes!
 - [x] find schemas for the websites in websites.json
     - [x] 101cookbooks
     - [x] abuelascounter
-    - [x] allrecipes
+    - [x] afghankitchenrecipes
     - [x] aldi
- aldi- [ ] populate websites.json with field necessary for scraping
+    - [x] allrecipes
+    - [x] barefeetinthekitchen
+    - [x] barefootcontessa
+    - [ ] bbcgoodfood
+    - [ ] bettycrocker
+ - [ ] populate websites.json with field necessary for scraping
 
 #### Searching
 - [ ] put documents in sqlite

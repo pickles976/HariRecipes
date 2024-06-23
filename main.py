@@ -3,13 +3,14 @@ from spider import Spider
 from datetime import datetime
 from urllib.request import urlopen
 
-URL = "https://www.aldi.us/"
+URL = "https://bbcgoodfood.com/"
 
 if __name__ == "__main__":
     
     try:
         urlopen(URL).read()
     except Exception as e:
+        print(e)
         print(f"{URL} does not allow scraping!")
         exit()
 
