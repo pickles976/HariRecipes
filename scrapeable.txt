@@ -10,7 +10,7 @@ https://bettycrocker.com/
 
 https://bigoven.com/
 https://bluejeanchef.com/
-https://www.bodybuilding.com/
+https://www.bodybuilding.com/ https://www.bodybuilding.com/recipes
 https://bonappetit.com/
 https://bongeats.com/
 https://bowlofdelicious.com/
@@ -22,6 +22,7 @@ https://cookpad.com/
 https://countryliving.com/
 https://creativecanning.com/
 https://cuisineaz.com/
+
 https://delish.com/
 https://www.eatingwell.com/
 https://www.eatliverun.com/
