@@ -68,8 +68,15 @@ Found: 36719 recipes!
     - [x] allrecipes
     - [x] barefeetinthekitchen
     - [x] barefootcontessa
-    - [ ] bbcgoodfood
-    - [ ] bettycrocker
+    - [x] bbcgoodfood
+    - [x] bettycrocker
+    - [ ] bigoven
+    - [ ] bluejeanchef
+    - [ ] bodybuilding.com
+    - [ ] bonappetite
+    - [ ] bongeats
+    - [ ] bowl of delicious
+
  - [ ] populate websites.json with field necessary for scraping
 
 #### Searching
