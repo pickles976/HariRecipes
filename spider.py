@@ -95,9 +95,9 @@ class Spider:
             writer = csv.writer(f, delimiter='\n')
             writer.writerows([list(self.recipes)])
 
-        with open(f"./data/{self.domain}_links_{len(self.seen)}.csv", "w") as f:
-            writer = csv.writer(f, delimiter='\n')
-            writer.writerows([list(self.seen)])
+        # with open(f"./data/{self.domain}_links_{len(self.seen)}.csv", "w") as f:
+        #     writer = csv.writer(f, delimiter='\n')
+        #     writer.writerows([list(self.seen)])
 
     def add_recipe(self, recipe_url: str):
         print(f"RECIPE: {recipe_url}")
