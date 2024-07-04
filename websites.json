@@ -90,7 +90,7 @@
         {
             "url": "https://bluejeanchef.com/",
             "root_url": "https://bluejeanchef.com/recipes/",
-            "ignore": ["shop", "cooking-school", "product", "uploads"]
+            "ignore": ["shop", "cooking-school", "product", "uploads", "comment"]
         },
         {
             "url": "https://www.bodybuilding.com/",
