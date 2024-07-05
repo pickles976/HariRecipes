@@ -79,41 +79,42 @@
             "root_url": "https://www.bettycrocker.com/recipes",
             "ignore": ["user-profile", "products", "how-to"]
         },
-
         {
             "url": "https://bigoven.com/",
             "root_url": "https://www.bigoven.com/recipes/",
             "recipe_prefix": "https://www.bigoven.com/recipe/",
-            "ignore": ["account", "artcile", "microadmin"]
+            "ignore": ["account", "article", "microadmin"]
         },
-
         {
             "url": "https://bluejeanchef.com/",
             "root_url": "https://bluejeanchef.com/recipes/",
             "ignore": ["shop", "cooking-school", "product", "uploads", "comment"]
         },
         {
-            "url": "https://www.bodybuilding.com/",
-            "root_url": "https://www.bodybuilding.com/recipes",
-            "ignore": ["signin", "shop", "forum", "podcast"]
-        },
-        {
             "url": "https://bonappetit.com/",
-            "root_url": "https://bonappetit.com/recipes",
-            "ignore": ["culture", "podcast", "videos", "restaurant", "story", "shop"]
+            "root_url": "https://bonappetit.com/recipes/",
+            "recipe_prefix": "https://bonappetit.com//recipe/",
+            "ignore": ["culture", "podcast", "video", "restaurant", "story", "shop", "episode", "listen", "account"]
         },
         {
             "url": "https://bongeats.com/",
             "root_url": "https://bongeats.com/recipes/",
-            "recipe_prefix": "https://bongeats.com/recipe/",
-            "ignore": ["kitchen"]
+            "recipe_prefix": "https://bongeats.com//recipe/",
+            "ignore": ["kitchen", "support"]
         },
         {
             "url": "https://bowlofdelicious.com/",
             "root_url": "https://bowlofdelicious.com/recipes/",
-            "ignore": ["shop"]
+            "ignore": ["shop", "comment"]
         },
 
+
+        {
+            "url": "https://closetcooking.com/",
+            "root_url": "https://www.closetcooking.com/recipes/",
+            "ignore": ["shop", "comment", "cookbooks", "cdn-cgi", "wprm", "#respond"],
+            "recipe_schema": "yoast-schema-graph"
+        },
 
 
 

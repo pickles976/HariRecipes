@@ -3,7 +3,7 @@ from spider import Spider
 from datetime import datetime
 from urllib.request import urlopen
 
-URL = "https://bluejeanchef.com/"
+URL = "https://bowlofdelicious.com/"
 
 if __name__ == "__main__":
     

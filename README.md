@@ -71,11 +71,11 @@ Found: 36719 recipes!
     - [x] bbcgoodfood
     - [x] bettycrocker
     - [ ] bigoven
-    - [ ] bluejeanchef
-    - [ ] bodybuilding.com
-    - [ ] bonappetite
-    - [ ] bongeats
+    - [x] bluejeanchef
+    - [x] bonappetite
+    - [x] bongeats
     - [ ] bowl of delicious
+    - [x] closetcooking
 
  - [ ] populate websites.json with field necessary for scraping
 
@@ -83,3 +83,10 @@ Found: 36719 recipes!
 - [ ] put documents in sqlite
 - [ ] try to make sqlite searchable? How about a tokenizer and similarity searches?
 
+
+```
+tf-idf for every lemma in all 100 recipes
+store the top n% of those lemmas as your keywords (n can be 100 if you like)
+treat those as tags: store a table of (lemma, relevance, recipe_id)
+when you query, search every word/lemma in the query. every recipe that shows up in the query results is a search result, ordered by the sum of relevances.
+```

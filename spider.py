@@ -132,6 +132,14 @@ class Spider:
                 if item.get("class") is None:
                     continue
 
+                # html tag can have multiple classes, so it's a list.
+                # also, recipe schemas like "yoast-schema-graph" DOES NOT MEAN A PAGE HAS A RECIPE.
+                # people sometimes use the schema even with articles. Better to just save the link anyways.
+                if self.recipe_schema in item.get("class"):
+                    self.add_recipe(url)
+                    break
+
+
             try:
                 data = json.loads(item.text)
 
