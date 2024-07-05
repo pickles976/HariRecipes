@@ -74,7 +74,7 @@ Found: 36719 recipes!
     - [x] bluejeanchef
     - [x] bonappetite
     - [x] bongeats
-    - [ ] bowl of delicious
+    - [x] bowl of delicious
     - [x] closetcooking
 
  - [ ] populate websites.json with field necessary for scraping
