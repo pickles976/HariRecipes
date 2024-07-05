@@ -76,11 +76,12 @@ class Spider:
         if tldextract.extract(url).domain != self.domain:
             return True
         
-        # Ignore subdomain if that matters
+        # Ignore other subdomains if that matters (for example, if we want cooking.en, don't go to cooking.fr)
         if self.subdomain is not None:
             if tldextract.extract(url).subdomain != self.subdomain:
                 return True
         
+        # Ignore URLs with keywords
         if self.ignore is not None:
             for item in self.ignore:
                 if item in url:
@@ -89,15 +90,12 @@ class Spider:
         return False
         
     def checkpoint(self):
+
         """Save the recipes at the current checkpoint"""
         print("CHECKPOINT REACHED! SAVING...")
         with open(f"./data/{self.domain}_recipes_{len(self.recipes)}.csv", "w") as f:
             writer = csv.writer(f, delimiter='\n')
             writer.writerows([list(self.recipes)])
-
-        # with open(f"./data/{self.domain}_links_{len(self.seen)}.csv", "w") as f:
-        #     writer = csv.writer(f, delimiter='\n')
-        #     writer.writerows([list(self.seen)])
 
     def add_recipe(self, recipe_url: str):
         print(f"RECIPE: {recipe_url}")
@@ -139,7 +137,7 @@ class Spider:
                     self.add_recipe(url)
                     break
 
-
+            # If the recipe schema is unknown, look to see if the ld+json content has a recipe tag in it somewhere.
             try:
                 data = json.loads(item.text)
 
