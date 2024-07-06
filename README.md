@@ -78,10 +78,31 @@ Found: 36719 recipes!
     - [x] bongeats
     - [x] bowl of delicious
     - [x] closetcooking
+    - [ ] country living
+    - [x] creative canning
+    - [ ] delish
+    - [x] eatingwell
+    - [ ] eatsmarter
+    - [ ] eatwhattonight
+    - [x] errenskitchen
+    - [ ] familyfoodonthetable
+    - [x] fitslowcookerqueen
+    - [ ] food
+    - [ ] foodandwine
+
+    - [ ] 
 
  - [ ] populate websites.json with field necessary for scraping
 
-
+Scrape cookpade
+```
+        // {
+        //     "url": "https://cookpad.com/",
+        //     "root_url": "https://cookpad.com/us/search/rice",
+        //     "recipe_prefix": "https://cookpad.com/us/recipes/",
+        //     "ignore": ["download", "navigation", "auth"]
+        // },
+```
 
 ```
 tf-idf for every lemma in all 100 recipes

@@ -2,7 +2,7 @@ import json
 import csv
 from typing import Optional
 from bs4 import BeautifulSoup
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 import tldextract
 
 # We should easily find all recipes above this depth

@@ -61,7 +61,6 @@
             "recipe_schema": "yoast-schema-graph",
             "ignore": ["#", "cdn", "swpmtx", "how", "wprm", "wp-content", ".html", "little-things"]
         },
-
         {
             "url": "https://barefootcontessa.com/",
             "root_url": "https://barefootcontessa.com/recipes",
@@ -107,15 +106,70 @@
             "root_url": "https://bowlofdelicious.com/recipes/",
             "ignore": ["shop", "comment"]
         },
-
-
         {
             "url": "https://closetcooking.com/",
             "root_url": "https://www.closetcooking.com/recipes/",
             "ignore": ["shop", "comment", "cookbooks", "cdn-cgi", "wprm", "#respond"],
             "recipe_schema": "yoast-schema-graph"
         },
+        {
+            "url": "https://www.eatingwell.com/",
+            "root_url": "https://www.eatingwell.com/recipes/",
+            "ignore": ["login", "google", "authentication", "logout", "article"],
+            "recipe_schema": "eatingwell-schema"
+        },
+        {
+            "url": "https://countryliving.com/",
+            "root_url": "https://countryliving.com/food-drinks/",
+            "ignore": ["auth", "home-design", "search", "#", "about", "shopping", "diy-crafts", "life", "shop", "gardening"]
+        },
+        {
+            "url": "https://creativecanning.com/",
+            "root_url": "https://creativecanning.com/",
+            "ignore": ["search", "about"],
+            "recipe_schema": "mv-create-json-ld-recipe"
+        },
+        {
+            "url": "https://www.delish.com/",
+            "root_url": "https://www.delish.com/",
+            "ignore": ["news", "kitchen", "store", "auth", "search"]
+        },
+        {
+            "url": "https://eatsmarter.com/",
+            "root_url": "https://www.eatliverun.com/recipes/",
+            "ignore": ["live-smarter", "lose-weight", "videos", "search", "user"]
+        },
+        {
+            "url": "https://eatwhattonight.com/",
+            "root_url": "https://eatwhattonight.com/",
+            "ignore": ["feeds", "wp-content", "#", "wprm_print"]
+        },
+        {
+            "url": "https://www.errenskitchen.com/",
+            "root_url": "https://www.errenskitchen.com/",
+            "ignore": ["search", "video", "conversions"]
+        },
+        {
+            "url": "https://www.familyfoodonthetable.com/",
+            "root_url": "https://www.familyfoodonthetable.com/recipes/",
+            "ignore": ["search", "comment"]
+        },
+        {
+            "url": "https://fitslowcookerqueen.com",
+            "root_url": "https://fitslowcookerqueen.com",
+            "ignore": ["search", "comment"]
+        },
+        {
+            "url": "https://food.com/",
+            "root_url": "https://food.com/",
+            "ignore": ["search", "comment", "#questions"]
+        },
 
+        {
+            "url": "https://foodandwine.com/",
+            "root_url": "https://foodandwine.com/recipes/",
+            "ignore": ["search", "comment", "#questions", "login", "newsletters", "sweepstakes", "authentication", "relative", "cooking-techniques"]
+        },
 
 
 

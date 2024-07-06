@@ -19,30 +19,19 @@ https://bongeats.com/
 https://bowlofdelicious.com/
 https://closetcooking.com/
 
-#
-https://cooking.nytimes.com/
-https://cookinglight.com/
-https://cookpad.com/
+# 07/06/2024
 https://countryliving.com/
 https://creativecanning.com/
-https://cuisineaz.com/
-
 https://delish.com/
 https://www.eatingwell.com/
-https://www.eatliverun.com/
 https://eatsmarter.com/
 https://eatwhattonight.com/
-https://en.wikibooks.org/
-https://epicurious.com/
 https://www.errenskitchen.com/
-https://ethanchlebowski.com/
-
 https://www.familyfoodonthetable.com/
-https://felix.kitchen
-https://fifteenspatulas.com/
 https://fitslowcookerqueen.com
 https://food.com/
 https://foodandwine.com/
+
 https://foodfidelity.com/
 https://foodnetwork.com/
 https://foodrepublic.com/
@@ -109,7 +98,6 @@ https://recipes.timesofindia.com/
 https://recipetineats.com/
 https://rosannapansino.com
 
-https://sallys-blog.de
 https://www.saveur.com/
 https://seriouseats.com/
 https://sharing.kptncook.com/
@@ -134,3 +122,4 @@ https://usapears.org/
 https://www.weightwatchers.com/
 https://www.wholefoodsmarket.com/
 https://zenbelly.com/
+https://en.wikibooks.org/
