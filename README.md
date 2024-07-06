@@ -52,12 +52,14 @@ Found: 36719 recipes!
 - [x] generalize recipe walker algorithm
 - [x] switch from dict for visited to set() for visited
 - [x] switch from json to csv for recipes
+- [ ] Pickle spider object at checkpoints so we can resume scraping if something happens and the scraping does not complete
 
 #### Scraping
-- [x] get all recipe links for allrecipes.com
+- [ ] get all recipe links
 - [ ] figure out how long it will take to scrape
-- [ ] scrape recipes
+- [ ] scrape all recipes
 - [ ] come up with a filesystem schema with checkpoints
+- [ ] searchable sqlite
 
 #### Collection
 - [x] find schemas for the websites in websites.json
@@ -70,7 +72,7 @@ Found: 36719 recipes!
     - [x] barefootcontessa
     - [x] bbcgoodfood
     - [x] bettycrocker
-    - [ ] bigoven
+    - [x] bigoven
     - [x] bluejeanchef
     - [x] bonappetite
     - [x] bongeats
@@ -79,9 +81,6 @@ Found: 36719 recipes!
 
  - [ ] populate websites.json with field necessary for scraping
 
-#### Searching
-- [ ] put documents in sqlite
-- [ ] try to make sqlite searchable? How about a tokenizer and similarity searches?
 
 
 ```

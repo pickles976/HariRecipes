@@ -3,7 +3,17 @@ from spider import Spider
 from datetime import datetime
 from urllib.request import urlopen
 
-URL = "https://bowlofdelicious.com/"
+URL = "https://bigoven.com/"
+
+# import csv
+# 
+# with open(f"./data/bigoven_links_59553.csv", "r") as f:
+#     csvfile = csv.reader(f)
+#     links = [line[0] for line in csvfile]
+
+# with open(f"./data/bigoven_recipes_45000.csv", "r") as f:
+#     csvfile = csv.reader(f)
+#     recipes = [line[0] for line in csvfile]
 
 if __name__ == "__main__":
     
