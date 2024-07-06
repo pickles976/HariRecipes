@@ -45,6 +45,8 @@ class Spider:
             recipe_schema: Optional[str] = None,
             ignore: Optional[list[str]] = None,
             subdomain: Optional[str] = None,
+            visited_links: Optional[list[str]] = None,
+            visited_recipes: Optional[list[str]] = None,
             *args,
             **kwargs
         ) -> None:
@@ -67,6 +69,13 @@ class Spider:
         self.seen = set()
         self.recipes = set()
         self.domain = tldextract.extract(url).domain
+
+        # Load checkpoints if they exist
+        if visited_links is not None:
+            self.seen = set(visited_links)
+
+        if visited_recipes is not None:
+            self.recipes = set(visited_recipes)
 
         print(f"Received extra arguments: {args} {kwargs}. Ignoring...")
 
@@ -96,6 +105,10 @@ class Spider:
         with open(f"./data/{self.domain}_recipes_{len(self.recipes)}.csv", "w") as f:
             writer = csv.writer(f, delimiter='\n')
             writer.writerows([list(self.recipes)])
+
+        with open(f"./data/{self.domain}_links_{len(self.seen)}.csv", "w") as f:
+            writer = csv.writer(f, delimiter='\n')
+            writer.writerows([list(self.seen)])
 
     def add_recipe(self, recipe_url: str):
         print(f"RECIPE: {recipe_url}")
