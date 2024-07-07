@@ -278,11 +278,6 @@
             "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
         },
         {
-            "url": "https://meljoulwan.com/",
-            "root_url": "https://meljoulwan.com/category/recipes/",
-            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
-        },
-        {
             "url": "https://minimalistbaker.com/",
             "root_url": "https://minimalistbaker.com/recipe-index/",
             "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
@@ -308,7 +303,16 @@
             "root_url": "https://www.number-2-pencil.com/",
             "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer"]
         },
-
+        {
+            "url": "https://www.persnicketyplates.com/",
+            "root_url": "https://www.persnicketyplates.com/recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer"]
+        },
+        {
+            "url": "https://www.realsimple.com/",
+            "root_url": "https://www.realsimple.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
 
         {
             "url": "https://en.wikibooks.org",

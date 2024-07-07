@@ -65,24 +65,8 @@ Found: 36719 recipes!
 #### Collection
 - [x] find schemas for the websites in websites.json
     - [x] goodhousekeeping
-    - [ ] greatbritishchefs
     - [ ] grouprecipes
-    - [x] hassanchef
-    - [x] hreshey land
-    - [x] im-worthy
-    - [x] indianhealthyrecipes
-    - [x] jimcooksfood
-    - [x] joshuaweissman
-    - [x] kennymgovern.com
-    - [ ] kinarthurbaking
-    - [x] kristines kitchen blog
-    - [x] lovin it vegan
-    - [x] martha stewart
-    - [ ] mccormick
-    - [ ] myjewishlearnin
-    - [x] mykitchen101en
-    - [ ] myrecipes
-    - [ ] number2penicl
+    - [x] myjewishlearning
 
 
 
