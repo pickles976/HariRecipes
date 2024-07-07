@@ -2,8 +2,9 @@ import json
 import csv
 from typing import Optional
 from bs4 import BeautifulSoup
-from urllib.request import urlopen, Request
+from urllib.request import urlopen
 import tldextract
+import pickle
 
 # We should easily find all recipes above this depth
 DEPTH_LIMIT = 10
@@ -61,6 +62,8 @@ class Spider:
         """
         self.url = url
         self.root_url = root_url
+        self.current_url = root_url
+
         self.recipe_prefix = recipe_prefix
         self.recipe_schema = recipe_schema
         self.ignore = ignore
@@ -102,13 +105,8 @@ class Spider:
 
         """Save the recipes at the current checkpoint"""
         print("CHECKPOINT REACHED! SAVING...")
-        with open(f"./data/{self.domain}_recipes_{len(self.recipes)}.csv", "w") as f:
-            writer = csv.writer(f, delimiter='\n')
-            writer.writerows([list(self.recipes)])
-
-        with open(f"./data/{self.domain}_links_{len(self.seen)}.csv", "w") as f:
-            writer = csv.writer(f, delimiter='\n')
-            writer.writerows([list(self.seen)])
+        with open(f'{self.domain}.pickle', 'wb') as f:
+            pickle.dump(self, f, protocol=pickle.HIGHEST_PROTOCOL)
 
     def add_recipe(self, recipe_url: str):
         print(f"RECIPE: {recipe_url}")
@@ -118,6 +116,8 @@ class Spider:
 
     # DFS walker
     def walk_page(self, url: str, depth: int=0):
+
+        self.current_url = url
 
         if depth > DEPTH_LIMIT:
             return
@@ -204,4 +204,4 @@ class Spider:
             self.walk_page(link, depth+1)
 
     def start(self):
-        self.walk_page(self.root_url)
+        return self.walk_page(self.current_url)

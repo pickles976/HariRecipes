@@ -164,11 +164,31 @@
             "root_url": "https://food.com/",
             "ignore": ["search", "comment", "#questions"]
         },
-
         {
             "url": "https://foodandwine.com/",
             "root_url": "https://foodandwine.com/recipes/",
             "ignore": ["search", "comment", "#questions", "login", "newsletters", "sweepstakes", "authentication", "relative", "cooking-techniques"]
+        },
+        {
+            "url": "https://www.foodfidelity.com/",
+            "root_url": "https://www.foodfidelity.com/",
+            "ignore": ["search", "#", "playlists", "layouts", "templates", "amazon", "wp-content", "wprm"]
+        },
+
+        {
+            "url": "https://www.foodnetwork.com/",
+            "root_url": "https://www.foodnetwork.com/recipes/",
+            "ignore": ["search", "#", "shows", "features", "articles", "profiles", "how-to", "shopping", "content", "video"]
+        },
+        {
+            "url": "https://www.foodrepublic.com/",
+            "root_url": "https://www.foodrepublic.com/category/recipes/",
+            "ignore": ["grocery", "#", "exclusives"]
+        },
+        {
+            "url": "https://www.gonnawantseconds.com/",
+            "root_url": "https://www.gonnawantseconds.com/recipes/",
+            "ignore": ["search", "login", "#", "subscriptions"]
         },
 
 

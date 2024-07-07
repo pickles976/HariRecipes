@@ -52,7 +52,8 @@ Found: 36719 recipes!
 - [x] generalize recipe walker algorithm
 - [x] switch from dict for visited to set() for visited
 - [x] switch from json to csv for recipes
-- [ ] Pickle spider object at checkpoints so we can resume scraping if something happens and the scraping does not complete
+- [x] Pickle spider object at checkpoints so we can resume scraping if something happens and the scraping does not complete
+- [ ] How could we trampoline a recursive search like this? (yield the params of the next call?)
 
 #### Scraping
 - [ ] get all recipe links
@@ -78,17 +79,21 @@ Found: 36719 recipes!
     - [x] bongeats
     - [x] bowl of delicious
     - [x] closetcooking
-    - [ ] country living
+    - [x] country living
     - [x] creative canning
-    - [ ] delish
+    - [x] delish
     - [x] eatingwell
-    - [ ] eatsmarter
-    - [ ] eatwhattonight
+    - [x] eatsmarter
+    - [x] eatwhattonight
     - [x] errenskitchen
-    - [ ] familyfoodonthetable
+    - [x] familyfoodonthetable
     - [x] fitslowcookerqueen
     - [ ] food
-    - [ ] foodandwine
+    - [x] foodandwine
+    - [x] foodfidelity
+    - [ ] foodnetwork
+    - [ ] foodrepublic
+    - [ ] forksoverknives
 
     - [ ] 
 
