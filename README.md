@@ -93,8 +93,7 @@ Found: 36719 recipes!
     - [x] foodfidelity
     - [ ] foodnetwork
     - [ ] foodrepublic
-    - [ ] forksoverknives
-
+    - [x] gonnawantseconds
     - [ ] 
 
  - [ ] populate websites.json with field necessary for scraping
