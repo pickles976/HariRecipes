@@ -1,9 +1,12 @@
+import os
+import csv
 import json
+import pickle
 from spider import Spider
 from datetime import datetime
 from urllib.request import urlopen
 
-URL = "https://foodandwine.com/"
+URL = "https://www.gonnawantseconds.com/"
 
 if __name__ == "__main__":
     
@@ -23,11 +26,23 @@ if __name__ == "__main__":
 
         spider=Spider(**item)
 
+        # Check for pickle
+        picklename = f'{spider.domain}.pickle'
+        if os.path.exists(picklename):
+            with open(picklename, 'rb') as handle:
+                spider = pickle.load(handle)
+                print(f"Restored pickle file with: {len(spider.recipes)} recipes!")
+
         start = datetime.now()
+        
         spider.start()
+
         print(f"Elapsed: {datetime.now() - start}")
 
         print(f"Found: {len(spider.seen)} links!")
         print(f"Found: {len(spider.recipes)} recipes!")
 
-        spider.checkpoint()
+        print("SAVING RECIPES")
+        with open(f"./data/{spider.domain}_recipes_{len(spider.recipes)}.csv", "w") as f:
+            writer = csv.writer(f, delimiter='\n')
+            writer.writerows([list(spider.recipes)])
