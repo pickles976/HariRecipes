@@ -6,7 +6,7 @@ from spider import Spider
 from datetime import datetime
 from urllib.request import urlopen
 
-URL = "https://minimalistbaker.com/"
+URL = "https://www.number-2-pencil.com/"
 
 if __name__ == "__main__":
     

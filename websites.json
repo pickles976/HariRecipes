@@ -255,7 +255,7 @@
         {
             "url": "https://www.kingarthurbaking.com/",
             "root_url": "https://www.kingarthurbaking.com/recipes",
-            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "image"]
         },
         {
             "url": "https://kristineskitchenblog.com/",
@@ -286,6 +286,27 @@
             "url": "https://minimalistbaker.com/",
             "root_url": "https://minimalistbaker.com/recipe-index/",
             "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.myjewishlearning.com/",
+            "root_url": "https://www.myjewishlearning.com/category/eat/jewish-recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://mykitchen101en.com/",
+            "root_url": "https://mykitchen101en.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.myrecipes.com/",
+            "root_url": "https://www.myrecipes.com/",
+            "recipe_prefix": "https://www.myrecipes.com/recipe/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.number-2-pencil.com/",
+            "root_url": "https://www.number-2-pencil.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer"]
         },
 
 
