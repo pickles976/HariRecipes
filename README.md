@@ -64,37 +64,23 @@ Found: 36719 recipes!
 
 #### Collection
 - [x] find schemas for the websites in websites.json
-    - [x] 101cookbooks
-    - [x] abuelascounter
-    - [x] afghankitchenrecipes
-    - [x] aldi
-    - [x] allrecipes
-    - [x] barefeetinthekitchen
-    - [x] barefootcontessa
-    - [x] bbcgoodfood
-    - [x] bettycrocker
-    - [x] bigoven
-    - [x] bluejeanchef
-    - [x] bonappetite
-    - [x] bongeats
-    - [x] bowl of delicious
-    - [x] closetcooking
-    - [x] country living
-    - [x] creative canning
-    - [x] delish
-    - [x] eatingwell
-    - [x] eatsmarter
-    - [x] eatwhattonight
-    - [x] errenskitchen
-    - [x] familyfoodonthetable
-    - [x] fitslowcookerqueen
-    - [x] food
-    - [x] foodandwine
-    - [x] foodfidelity
-    - [x] foodnetwork
-    - [x] foodrepublic
-    - [x] gonnawantseconds
-    - [ ] 
+    - [ ] goodhousekeeping
+    - [ ] greatbritishchefs
+    - [ ] grouprecipes
+    - [x] hassanchef
+    - [x] hreshey land
+    - [x] im-worthy
+    - [x] indianhealthyrecipes
+    - [x] jimcooksfood
+    - [x] joshuaweissman
+    - [x] kennymgovern.com
+    - [ ] kinarthurbaking
+    - [ ] kristines kitchen blog
+    - [x] lovin it vegan
+    - [ ] martha stewart
+    - [ ] mccormick
+
+
 
  - [ ] populate websites.json with field necessary for scraping
 

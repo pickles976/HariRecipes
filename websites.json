@@ -191,6 +191,102 @@
             "ignore": ["search", "login", "#", "subscriptions"]
         },
 
+        {
+            "url": "https://goodfooddiscoveries.com/",
+            "root_url": "https://goodfooddiscoveries.com/recipes/",
+            "ignore": ["search", "wp-content", "#", "wprm"]
+        },
+        {
+            "url": "https://goodhousekeeping.com/",
+            "root_url": "https://www.goodhousekeeping.com/food-recipes/",
+            "ignore": ["beauty", "health", "home", "product", "life", "auth", "search"]
+        },
+        {
+            "url": "https://greatbritishchefs.com/",
+            "root_url": "https://www.greatbritishchefs.com/recipes",
+            "ignore": ["search", "login", "#", "shop", "competitions"]
+        },
+        {
+            "url": "http://www.grouprecipes.com/",
+            "root_url": "http://www.grouprecipes.com/",
+            "ignore": ["search", "login", "#", "ingredients", "comments"]
+        },
+        {
+            "url": "https://www.hassanchef.com/",
+            "root_url": "https://www.hassanchef.com/",
+            "ignore": ["search", "login", "#"]
+        },
+        {
+            "url": "https://www.hersheyland.com/",
+            "root_url": "https://www.hersheyland.com/recipes",
+            "ignore": ["search", "login", "#", "product", "brands", "buy"]
+        },
+        {
+            "url": "https://im-worthy.com/",
+            "root_url": "https://im-worthy.com/recipes/",
+            "ignore": ["shop", "browse", "search", "login", "register", "auth"]
+        },
+        {
+            "url": "https://www.indianhealthyrecipes.com/",
+            "root_url": "https://www.indianhealthyrecipes.com/recipes/",
+            "ignore": ["shop", "browse", "search", "login", "register", "auth", "comment"]
+        },
+        {
+            "url": "https://jimcooksfoodgood.com/",
+            "root_url": "https://jimcooksfoodgood.com/",
+            "ignore": ["shop", "browse", "search", "login", "register", "auth", "comment"]
+        },
+        {
+            "url": "https://www.joshuaweissman.com/",
+            "root_url": "https://www.joshuaweissman.com/all-recipes/",
+            "recipe_prefix": "https://www.joshuaweissman.com/post/"
+        },
+        {
+            "url": "https://juliegoodwin.com.au/",
+            "root_url": "https://juliegoodwin.com.au/recipes/",
+            "ignore": ["shop", "browse", "search", "auth", "comment", "wp-content", "wprm"],
+            "recipe_schema": "yoast-schema-graph"
+        },
+        {
+            "url": "https://kennymcgovern.com/",
+            "root_url": "https://kennymcgovern.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.kingarthurbaking.com/",
+            "root_url": "https://www.kingarthurbaking.com/recipes",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://kristineskitchenblog.com/",
+            "root_url": "https://kristineskitchenblog.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://lovingitvegan.com/",
+            "root_url": "https://lovingitvegan.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.marthastewart.com/",
+            "root_url": "https://www.marthastewart.com/1505788/recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.mccormick.com/",
+            "root_url": "https://www.mccormick.com/recipes",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://meljoulwan.com/",
+            "root_url": "https://meljoulwan.com/category/recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://minimalistbaker.com/",
+            "root_url": "https://minimalistbaker.com/recipe-index/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
 
 
         {
