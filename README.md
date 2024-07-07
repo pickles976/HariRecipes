@@ -88,11 +88,11 @@ Found: 36719 recipes!
     - [x] errenskitchen
     - [x] familyfoodonthetable
     - [x] fitslowcookerqueen
-    - [ ] food
+    - [x] food
     - [x] foodandwine
     - [x] foodfidelity
-    - [ ] foodnetwork
-    - [ ] foodrepublic
+    - [x] foodnetwork
+    - [x] foodrepublic
     - [x] gonnawantseconds
     - [ ] 
 
