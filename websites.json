@@ -315,9 +315,129 @@
         },
 
         {
-            "url": "https://en.wikibooks.org",
+            "url": "https://www.recipegirl.com/",
+            "root_url": "https://www.recipegirl.com/recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
+        {
+            "url": "https://recipes.timesofindia.com/",
+            "root_url": "https://recipes.timesofindia.com/recipes",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
+        {
+            "url": "https://recipetineats.com/",
+            "root_url": "https://www.recipetineats.com/recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
+        {
+            "url": "https://seriouseats.com/",
+            "root_url": "https://seriouseats.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
+        {
+            "url": "https://www.simplyrecipes.com/",
+            "root_url": "https://www.simplyrecipes.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
+        {
+            "url": "https://www.simplywhisked.com/",
+            "root_url": "https://www.simplywhisked.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
+        {
+            "url": "https://southernliving.com/",
+            "root_url": "https://www.southernliving.com/recipes",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy", "print", "#respond"]
+        },
+        {
+            "url": "https://steamykitchen.com/",
+            "root_url": "https://steamykitchen.com/recipe-index/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy", "print", "#respond"]
+        },
+        {
+            "url": "https://tasty.co/",
+            "root_url": "https://tasty.co/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy", "print", "#respond"]
+        },
+        {
+            "url": "https://www.thecookingguy.com/",
+            "root_url": "https://www.thecookingguy.com/search-recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "print"]
+        },
+        {
+            "url": "https://www.thepalatablelife.com/",
+            "root_url": "https://www.thepalatablelife.com/category/recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "print"]
+        },
+        {
+            "url": "https://www.thepioneerwoman.com/",
+            "root_url": "https://www.thepioneerwoman.com/food-cooking/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "life"]
+        },
+        {
+            "url": "https://www.thespruceeats.com/",
+            "root_url": "https://www.thespruceeats.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "life"]
+        },
+        {
+            "url": "https://www.thevintagemixer.com/",
+            "root_url": "https://www.thevintagemixer.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "life"]
+        },
+
+
+        {
+            "url": "https://en.wikibooks.org/",
             "root_url": "https://en.wikibooks.org/w/index.php?title=Category:Recipes&from=0",
-            "recipe_prefix": "https://en.wikibooks.org/wiki/Cookbook",
+            "recipe_prefix": "https://en.wikibooks.org//wiki/Cookbook:",
+            "ignore": [
+                "talk", 
+                "userLogin", 
+                "edit", 
+                "auth", 
+                "info", 
+                "comment", 
+                "UserLogin", 
+                "Special", 
+                "content", 
+                "policy", 
+                "Requests",
+                "Tracking", 
+                "history", 
+                "redirect",
+                "Archive",
+                "Shortcut", 
+                "RFD",
+                "What",
+                "WIW",
+                "AT",
+                "mw-head",
+                "FAQ",
+                "HELP",
+                "Help",
+                "Sources",
+                "Wikibooks",
+                "search",
+                "Department",
+                "User",
+                "Template",
+                "File",
+                "Wikijunior", 
+                "Featured_items",
+                "until",
+                "oldid",
+                "subcat",
+                "filefrom",
+                "Wikimedia",
+                ":Book",
+                ":Shelf",
+                ":Subject",
+                ":Featured_books",
+                "Talk:",
+                "printable",
+                "Horticulture",
+                "Bartending"
+            ],
             "subdomain": "en"
         }
     ]
