@@ -209,7 +209,7 @@
         {
             "url": "http://www.grouprecipes.com/",
             "root_url": "http://www.grouprecipes.com/",
-            "ignore": ["search", "login", "#", "ingredients", "comments"]
+            "ignore": ["search", "login", "#", "ingredients", "comments", "people", "tag", "comment"]
         },
         {
             "url": "https://www.hassanchef.com/",
@@ -394,8 +394,6 @@
             "root_url": "https://www.zenbelly.com/recipes/",
             "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
         },
-
-
         {
             "url": "https://en.wikibooks.org/",
             "root_url": "https://en.wikibooks.org/w/index.php?title=Category:Recipes&from=0",

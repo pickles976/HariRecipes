@@ -51,10 +51,6 @@ This script will have a recipe metadata class, and the inner text will be a list
 #### Collection
 - [x] find schemas for the websites in websites.json
     - [ ] grouprecipes
-    - [ ] recipes.timesofindia
-    - [ ] thepioneerwoman
-    - [ ] wikibooks
-    - [ ] tidymom
  - [x] populate websites.json with field necessary for scraping
  - [ ] combine all recipes into one super-list
  - [ ] re-write script so that it could crawl everything in a totally automated fashion, with threading
