@@ -382,7 +382,17 @@
         {
             "url": "https://www.thevintagemixer.com/",
             "root_url": "https://www.thevintagemixer.com/",
-            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "life"]
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "reply", "respond"]
+        },
+        {
+            "url": "https://tidymom.net/",
+            "root_url": "https://tidymom.net/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.zenbelly.com/",
+            "root_url": "https://www.zenbelly.com/recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
         },
 
 
@@ -430,13 +440,23 @@
                 "filefrom",
                 "Wikimedia",
                 ":Book",
-                ":Shelf",
                 ":Subject",
                 ":Featured_books",
                 "Talk:",
                 "printable",
                 "Horticulture",
-                "Bartending"
+                "Bartending",
+                "from",
+                "Pages_to_translate",
+                "Shelf",
+                "cite_note",
+                "Pages_transcluding_nonexistent_sections",
+                "Pages_needing_attention",
+                "Content_maintenance",
+                "Accuracy_disputes",
+                "pages_needing_work",
+                "Alphabetical",
+                "Cataloguing"
             ],
             "subdomain": "en"
         }
