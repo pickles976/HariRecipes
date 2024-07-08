@@ -37,68 +37,28 @@ Scraping by prefix-url is much faster, because you don't actually need to visit 
 
 This script will have a recipe metadata class, and the inner text will be a list of ld+json, typically the first of which has `"@type"` of `["Recipe"]`, as well as some other tags sometimes.
 
-### TODO:
-
-allrecipes.com:
-```commandline
-Elapsed: 0:56:05.523423
-Found: 53107 links!
-Found: 36719 recipes!
-```
-
-#### Crawling
-- [x] come up with a recipe scraping strategy
-- [x] cap at 100 recipes and play around with different strategies
-- [x] generalize recipe walker algorithm
-- [x] switch from dict for visited to set() for visited
-- [x] switch from json to csv for recipes
-- [x] Pickle spider object at checkpoints so we can resume scraping if something happens and the scraping does not complete
-- [ ] How could we trampoline a recursive search like this? (yield the params of the next call?)
+## TODO:
 
 #### Scraping
 - [ ] get all recipe links
 - [ ] figure out how long it will take to scrape
 - [ ] scrape all recipes
+
+#### Organization
 - [ ] come up with a filesystem schema with checkpoints
 - [ ] searchable sqlite
 
 #### Collection
 - [x] find schemas for the websites in websites.json
-    - [x] goodhousekeeping
     - [ ] grouprecipes
-    - [x] myjewishlearning
-    - [ ] recipegirl
     - [ ] recipes.timesofindia
-    - [x] recipetineats
-    - [ ] seriouseats
-    - [ ] simplyrecipes
-    - [ ] simplywhisked
-    - [x] southernliving
-    - [x] steamykitchen
-    - [ ] strongrfastr
-    - [x] tasty
-    - [x] thecookingguy
     - [ ] thepioneerwoman
     - [ ] wikibooks
-    - [ ] thespruceeats
-    - [x] thevintagemixer
     - [ ] tidymom
-    - [ ] zenrecipes
-
-
-
-
- - [ ] populate websites.json with field necessary for scraping
-
-Scrape cookpade
-```
-        // {
-        //     "url": "https://cookpad.com/",
-        //     "root_url": "https://cookpad.com/us/search/rice",
-        //     "recipe_prefix": "https://cookpad.com/us/recipes/",
-        //     "ignore": ["download", "navigation", "auth"]
-        // },
-```
+ - [x] populate websites.json with field necessary for scraping
+ - [ ] combine all recipes into one super-list
+ - [ ] re-write script so that it could crawl everything in a totally automated fashion, with threading
+ - [ ] refactor folder layout
 
 ```
 tf-idf for every lemma in all 100 recipes

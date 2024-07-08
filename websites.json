@@ -456,7 +456,11 @@
                 "Accuracy_disputes",
                 "pages_needing_work",
                 "Alphabetical",
-                "Cataloguing"
+                "Cataloguing",
+                "cite-ref",
+                "cite_ref",
+                "Reference",
+                "reference"
             ],
             "subdomain": "en"
         }
