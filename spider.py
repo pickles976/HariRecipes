@@ -166,6 +166,20 @@ class Spider:
             except Exception as e:
                 print(f"Failed to parse script text with exception: {e}")
 
+        # This only works for grouprecipes.com
+        if self.domain == "grouprecipes":
+            body = soup.find_all('body')
+            if body is not None:
+                for item in body:
+                    tag_class = item.get("class")
+                    if tag_class is None:
+                        continue
+
+                    if "hrecipe" in tag_class:
+                        self.add_recipe(url)
+                        break
+                
+
         # Loop over every link on the page
         for link in soup.find_all('a'):
 
