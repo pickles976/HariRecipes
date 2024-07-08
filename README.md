@@ -69,19 +69,21 @@ Found: 36719 recipes!
     - [x] myjewishlearning
     - [ ] recipegirl
     - [ ] recipes.timesofindia
-    - [ ] recipetineats
+    - [x] recipetineats
     - [ ] seriouseats
     - [ ] simplyrecipes
     - [ ] simplywhisked
-    - [ ] southernliving
+    - [x] southernliving
     - [x] steamykitchen
     - [ ] strongrfastr
-    - [ ] tasty
+    - [x] tasty
     - [x] thecookingguy
     - [ ] thepioneerwoman
     - [ ] wikibooks
     - [ ] thespruceeats
-    - [ ] thevintagemixer
+    - [x] thevintagemixer
+    - [ ] tidymom
+    - [ ] zenrecipes
 
 
 
