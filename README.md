@@ -67,6 +67,22 @@ Found: 36719 recipes!
     - [x] goodhousekeeping
     - [ ] grouprecipes
     - [x] myjewishlearning
+    - [ ] recipegirl
+    - [ ] recipes.timesofindia
+    - [ ] recipetineats
+    - [ ] seriouseats
+    - [ ] simplyrecipes
+    - [ ] simplywhisked
+    - [ ] southernliving
+    - [x] steamykitchen
+    - [ ] strongrfastr
+    - [ ] tasty
+    - [x] thecookingguy
+    - [ ] thepioneerwoman
+    - [ ] wikibooks
+    - [ ] thespruceeats
+    - [ ] thevintagemixer
+
 
 
 

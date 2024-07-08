@@ -66,22 +66,19 @@ https://www.recipegirl.com/
 https://recipes.timesofindia.com/
 https://recipetineats.com/
 https://rosannapansino.com
-https://www.saveur.com/
 https://seriouseats.com/
-https://simply-cookit.com/
 https://simplyrecipes.com/
 https://simplywhisked.com/
-https://www.southerncastiron.com/
 https://southernliving.com/
 https://steamykitchen.com/
-https://www.strongrfastr.com
 https://tasty.co
-https://tastykitchen.com/
 https://thecookingguy.com/
+https://en.wikibooks.org/
 https://www.thepalatablelife.com
 https://thepioneerwoman.com/
 https://thespruceeats.com/
 https://thevintagemixer.com/
+
 https://thinlicious.com/
 https://tidymom.net
 https://usapears.org/
@@ -89,4 +86,3 @@ https://www.weightwatchers.com/
 https://www.wholefoodsmarket.com/
 https://zenbelly.com/
 
-https://en.wikibooks.org/
