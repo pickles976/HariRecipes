@@ -2,27 +2,17 @@ import os
 import csv
 import json
 import pickle
-from spider import Spider
+from crawler.spider import Spider
 from datetime import datetime
 from urllib.request import urlopen
 
-URL = "http://www.grouprecipes.com/"
 
 if __name__ == "__main__":
     
-    try:
-        urlopen(URL).read()
-    except Exception as e:
-        print(e)
-        print(f"{URL} does not allow scraping!")
-        exit()
-
     with open("./websites.json") as f:
         items = json.load(f)["sources"]
 
     for item in items:
-        if item["url"] != URL: 
-            continue
 
         spider=Spider(**item)
 
@@ -43,6 +33,6 @@ if __name__ == "__main__":
         print(f"Found: {len(spider.recipes)} recipes!")
 
         print("SAVING RECIPES")
-        with open(f"./data/{spider.domain}_recipes_{len(spider.recipes)}.csv", "w") as f:
+        with open(f"./recipe_lists/{spider.domain}_recipes_{len(spider.recipes)}.csv", "w") as f:
             writer = csv.writer(f, delimiter='\n')
             writer.writerows([list(spider.recipes)])
