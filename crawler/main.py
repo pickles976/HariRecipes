@@ -2,8 +2,8 @@ import os
 import csv
 import json
 import pickle
+from spider import Spider
 from datetime import datetime
-from crawler.spider import Spider
 from concurrent.futures import ThreadPoolExecutor
 
 
@@ -39,5 +39,9 @@ if __name__ == "__main__":
     with open("./websites.json") as f:
         items = json.load(f)["sources"]
 
+    start = datetime.now()
+
     with ThreadPoolExecutor(max_workers=16) as executor:
         res = executor.map(crawl_site_threaded, items)
+
+    print(f"FINISHED IN: {datetime.now() - start}")
