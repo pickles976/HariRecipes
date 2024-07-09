@@ -1,11 +1,24 @@
 import os
 import csv
 
-files = os.listdir("./recipe_lists")
+DIR = "./recipe_lists"
+
+files = os.listdir(DIR)
+
+recipes = []
 
 for file in files:
-    with open(file, "r") as f:
+    filepath = os.path.join(DIR, file)
+    with open(filepath, "r") as f:
         reader = csv.reader(f, delimiter='\n')
-        
-        lines = reader.readlines()
-        print(len(lines))
+        for row in reader:
+            if len(row) == 1:
+                # Filtering out some duplicate URLs
+                # url = row[0]
+                # if "respond" in url or "print" in url:
+                #     continue
+                recipes.append(row[0])
+
+with open(f"./all_recipes.csv", "w") as f:
+    writer = csv.writer(f, delimiter='\n')
+    writer.writerows([recipes])
