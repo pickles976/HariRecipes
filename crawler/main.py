@@ -41,7 +41,7 @@ if __name__ == "__main__":
 
     start = datetime.now()
 
-    with ThreadPoolExecutor(max_workers=16) as executor:
+    with ThreadPoolExecutor(max_workers=64) as executor:
         res = executor.map(crawl_site_threaded, items)
 
     print(f"FINISHED IN: {datetime.now() - start}")
