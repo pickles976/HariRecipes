@@ -40,16 +40,12 @@ This script will have a recipe metadata class, and the inner text will be a list
 ## TODO:
 
 #### Scraping
-- [ ] figure out how long it will take to scrape
+- [x] figure out how long it will take to scrape (~4hrs)
 - [ ] scrape all recipes
 
 #### Organization
 - [ ] come up with a filesystem schema with checkpoints
 - [ ] searchable sqlite
-
-#### Collection
- - [ ] combine all recipes into one super-list
- - [ ] re-write script so that it could crawl everything in a totally automated fashion, with threading
 
 ```
 tf-idf for every lemma in all 100 recipes
