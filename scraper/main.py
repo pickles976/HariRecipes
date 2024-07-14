@@ -1,21 +1,45 @@
 import csv
 import json
+import pickle
 from datetime import datetime
 from recipe_scrapers import scrape_me
 from concurrent.futures import ThreadPoolExecutor
 
-total = 0
-start = datetime.now()
+def divide_chunks(l, n): 
+    for i in range(0, len(l), n):  
+        yield l[i:i + n] 
 
 def scrape_url(url: str) -> dict:
-    global total
-    global start
-    total += 1
-    if total % 1000 == 0:
-        print(f"Elapsed: {datetime.now() - start} Scraped {total} recipes...")
-    scraper = scrape_me(url)
-    scraper.host()
-    return scraper.to_json()
+    try:
+        scraper = scrape_me(url)
+        scraper.host()
+        return scraper.to_json()
+    except:
+        return {}
+
+start = datetime.now()
+
+class Scraper:
+
+    def __init__(self, urls : list[str],chunk_size : int, workers: int):
+
+        self.workers = workers
+        self.urls = urls
+        self.url_chunks = list(divide_chunks(urls, chunk_size))
+        self.recipes = []
+        self.i = 0
+
+    def scrape(self):
+        chunk = self.url_chunks[self.i]
+        with ThreadPoolExecutor(max_workers=self.workers) as executor:
+            res = executor.map(scrape_url, chunk)
+            self.recipes += list(res)
+        print(f"ELAPSED: {datetime.now() - start} RECIPES: {len(self.recipes)}")
+
+        with open('scraper.pickle', 'wb') as f:
+            pickle.dump(self, f, protocol=pickle.HIGHEST_PROTOCOL)
+
+        self.i += 1
 
 urls = []
 with open('./all_recipes.csv', 'r') as f:
@@ -24,13 +48,13 @@ with open('./all_recipes.csv', 'r') as f:
         if len(row) == 1:
             urls.append(row[0])
 
-with ThreadPoolExecutor(max_workers=64) as executor:
-    res = executor.map(scrape_url, urls)
+scraper = Scraper(urls, chunk_size=2048, workers=256)
+while len(scraper.url_chunks) > scraper.i:
+    scraper.scrape()
+
 print(f"FINISHED IN: {datetime.now() - start}")
 
-recipes = {"recipes" : list(res)}
-
 with open('./recipes.json', 'w') as f:
-    json.dump(recipes, f)
+    json.dump({"recipes" : scraper.recipes}, f)
 
-print(f"{len(recipes)} RECIPES!")
+print(f"{len(scraper.recipes)} RECIPES!")
