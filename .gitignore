@@ -2,3 +2,5 @@ venv
 *.pickle
 recipes.json
 recipes.zip
+*/recipes_validated.json
+*/recipes_validated.zip
