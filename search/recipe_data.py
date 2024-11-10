@@ -48,7 +48,7 @@ def data_to_str(data: RecipeData) -> str:
 
     ingredients = f"Ingredients: \n"
     for ingredient in data.ingredients:
-        ingredients += f"- {ingredient}"
+        ingredients += f"- {ingredient}\n"
 
     text = f"""
 {data.title}
