@@ -44,5 +44,16 @@ class RecipeData(BaseModel):
     equipment: Optional[list[str]]
     description: Optional[str]
 
+def data_to_str(data: RecipeData) -> str:
+    text = f"""
+{data.title}
+{data.ingredients}
+{data.instructions}"""
+    
+    if data.description:
+        text += "\n"
+        text += data.description
+
+    return text
 
 
