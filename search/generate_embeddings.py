@@ -13,17 +13,20 @@ recipes = [RecipeData(**item) for item in raw_data]
 print(f"Loaded {len(recipes)} recipes!")
 
 print("Loading Sentence Transformer...")
-embedder = SentenceTransformer("all-MiniLM-L6-v2", model_kwargs={"torch_dtype": "float16"})
+embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
 # Corpus consisting of example titles
 print("Extracting titles...")
 corpus = [data_to_str(item) for item in recipes]
+# corpus = [item.title for item in recipes]
+print("Example Corpus")
+print(corpus[0])
 
 # Use "convert_to_tensor=True" to keep the tensors on GPU (if available)
 print("Generating corpus embeddings...")
 start = time.time()
 corpus_embeddings = embedder.encode(corpus, convert_to_tensor=True)
-print(f"Generated embeddings in {time.time() - start}s")
+print(f"Generated embeddings in {int(time.time() - start)}s")
 
 # Save as pickle
 print("Pickling embeddings...")

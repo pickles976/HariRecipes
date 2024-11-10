@@ -45,9 +45,15 @@ class RecipeData(BaseModel):
     description: Optional[str]
 
 def data_to_str(data: RecipeData) -> str:
+
+    ingredients = f"Ingredients: \n"
+    for ingredient in data.ingredients:
+        ingredients += f"- {ingredient}"
+
     text = f"""
 {data.title}
-{data.ingredients}
+{ingredients}
+Instructions: 
 {data.instructions}"""
     
     if data.description:
