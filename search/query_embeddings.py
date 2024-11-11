@@ -1,37 +1,33 @@
-# print("Loading recipes...")
-# with open("./recipes_validated.json", "r") as f:
-#     raw_data = json.load(f)["recipes"]
-# recipes = [RecipeData(**item) for item in raw_data]
-# print(f"Loaded {len(recipes)} recipes!")
+import json
+import pickle
+from recipe_data import RecipeData
+import torch
+from sentence_transformers import SentenceTransformer
 
-# print("Running queries...")
+print("Loading recipes...")
+with open("./recipes_validated.json", "r") as f:
+    raw_data = json.load(f)["recipes"]
+recipes = [RecipeData(**item) for item in raw_data]
+print(f"Loaded {len(recipes)} recipes!")
 
-# # Query sentences:
-# queries = [
-#     "Gay Pasta",
-#     "Dirt Salad",
-#     "Halo 3"
-# ]
+with open('recipe_embeddings.pickle', 'rb') as handle:
+    recipe_embeddings = pickle.load(handle)
 
-# # Find the closest 5 sentences of the corpus for each query sentence based on cosine similarity
-# top_k = min(10, len(corpus))
-# for query in queries:
-#     query_embedding = embedder.encode(query, convert_to_tensor=True)
+print("Loading Sentence Transformer...")
+embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
-#     # We use cosine-similarity and torch.topk to find the highest 5 scores
-#     similarity_scores = embedder.similarity(query_embedding, corpus_embeddings)[0]
-#     scores, indices = torch.topk(similarity_scores, k=top_k)
+query = ""
+while query != "exit":
+    query = input("Enter a search query for a recipe: ")
 
-#     print("\nQuery:", query)
-#     print("Top 10 most similar sentences in corpus:")
+    top_k = min(20, len(recipes))
+    query_embedding = embedder.encode(query, convert_to_tensor=True)
 
-#     for score, idx in zip(scores, indices):
-#         print(corpus[idx], f"(Score: {score:.4f})")
+    similarity_scores = embedder.similarity(query_embedding, recipe_embeddings)[0]
+    scores, indices = torch.topk(similarity_scores, k=top_k)
 
-#     """
-#     # Alternatively, we can also use util.semantic_search to perform cosine similarty + topk
-#     hits = util.semantic_search(query_embedding, corpus_embeddings, top_k=10)
-#     hits = hits[0]      #Get the hits for the first query
-#     for hit in hits:
-#         print(corpus[hit['corpus_id']], "(Score: {:.4f})".format(hit['score']))
-#     """
+    print("\nQuery:", query)
+    print("Top 20 most similar sentences in corpus:")
+
+    for score, idx in zip(scores, indices):
+        print(recipes[idx].model_dump()["title"], f"(Score: {score:.4f})")

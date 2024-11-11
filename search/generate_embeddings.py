@@ -19,6 +19,8 @@ embedder = SentenceTransformer("all-MiniLM-L6-v2")
 print("Extracting recipe info...")
 corpus = [data_to_str(item) for item in recipes]
 # corpus = [item.title for item in recipes]
+# corpus = corpus[:50]
+
 print("Example Corpus")
 print("\n\n\n")
 print(corpus[1])

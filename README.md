@@ -47,10 +47,11 @@ This script will have a recipe metadata class, and the inner text will be a list
 #### Organization
 - [x] Semantic Search
  - [x] https://sbert.net/examples/applications/semantic-search/README.html
+- [x] create embedding pickle file for recipes (~4.2 hrs)
 - [ ] create sqlite file from recipes json
-- [ ] create embedding pickle file for recipes
 - [ ] perform queries on sqlite with embeddings
 - [ ] repl demo
+
 - [ ] fastapi wrapper
 - [ ] dockerized api
 - [ ] html page
