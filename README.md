@@ -34,6 +34,18 @@ Scraping by prefix-url is much faster, because you don't actually need to visit 
 
 This script will have a recipe metadata class, and the inner text will be a list of ld+json, typically the first of which has `"@type"` of `["Recipe"]`, as well as some other tags sometimes.
 
+
+# Info
+
+1. Run crawler on all whitelisted recipe websites
+2. Combine all recipe lists into a mega list
+3. Run scraper on all_recipes.csv
+4. Run validate_recipes.py to convert all recipes to a somewhat consistent representation
+5. Run test_parse.py to make sure that all recipes can parse to Pydantic models
+6. Generate embeddings for all recipes
+7. (Optional) binarize embeddings
+8. Vectorize queries and measure cosine distance (or hamming distance for binary vectors)
+
 ## TODO:
 
 #### Scraping
@@ -44,12 +56,15 @@ This script will have a recipe metadata class, and the inner text will be a list
 - [x] clean up data
 - [x] make pydantic model
 
+https://emschwartz.me/binary-vector-embeddings-are-so-cool/
+
 #### Organization
 - [x] Semantic Search
  - [x] https://sbert.net/examples/applications/semantic-search/README.html
 - [x] create embedding pickle file for recipes (~4.2 hrs)
+- [ ] test out binary embedding queries
 - [ ] create sqlite file from recipes json
-- [ ] perform queries on sqlite with embeddings
+- [ ] Load recipes from sqlite with queries
 - [ ] repl demo
 
 - [ ] fastapi wrapper
