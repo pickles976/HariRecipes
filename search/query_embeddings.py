@@ -3,6 +3,7 @@ import pickle
 from recipe_data import RecipeData
 import torch
 from sentence_transformers import SentenceTransformer
+import time
 
 print("Loading recipes...")
 with open("./recipes_validated.json", "r") as f:
@@ -20,6 +21,8 @@ query = ""
 while query != "exit":
     query = input("Enter a search query for a recipe: ")
 
+    start = time.time()
+
     top_k = min(20, len(recipes))
     query_embedding = embedder.encode(query, convert_to_tensor=True)
 
@@ -31,3 +34,5 @@ while query != "exit":
 
     for score, idx in zip(scores, indices):
         print(recipes[idx].model_dump()["title"], f"(Score: {score:.4f})")
+
+    print(f"Search took {time.time() - start}s")
