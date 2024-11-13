@@ -4,3 +4,6 @@ recipes.json
 recipes.zip
 */recipes_validated.json
 */recipes_validated.zip
+*.json.gz
+*.jar
+__pycache__
