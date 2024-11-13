@@ -62,14 +62,14 @@ https://emschwartz.me/binary-vector-embeddings-are-so-cool/
 - [x] Semantic Search
  - [x] https://sbert.net/examples/applications/semantic-search/README.html
 - [x] create embedding pickle file for recipes (~4.2 hrs)
-- [ ] test out binary embedding queries
-- [ ] create sqlite file from recipes json
-- [ ] Load recipes from sqlite with queries
-- [ ] repl demo
+- [x] test out binary embedding queries
+- [x] repl demo
+- [ ] todo: cleanup binarization
 
 - [ ] fastapi wrapper
 - [ ] dockerized api
-- [ ] html page
-- [ ] html served from fastapi
+- [ ] search api working
+- [ ] add templates for routes
+- [ ] get this working
 - [ ] cleanup + docs
 - [ ] release v1
