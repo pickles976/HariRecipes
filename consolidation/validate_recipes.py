@@ -1,7 +1,9 @@
+"""Filters out all recipes that don't adhere to our rules"""
+
 import json
 from tqdm import tqdm
 
-fields = ['ingredients', 'language', 'description', 'nutrients', 'cooking_method', 'image', 'prep_time', 'ratings', 'host', 'cuisine', 'category', 'equipment', 'author', 'site_name', 'yields', 'canonical_url', 'title', 'instructions', 'total_time', 'ingredient_groups', 'instructions_list', 'cook_time']
+fields = ['language', 'description', 'nutrients', 'cooking_method', 'image', 'prep_time', 'ratings', 'host', 'cuisine', 'category', 'equipment', 'author', 'site_name', 'yields', 'canonical_url', 'title', 'total_time', 'ingredient_groups', 'instructions_list', 'cook_time']
 field_set = set(fields)
 
 nutrient_fields = ["calories", "fatContent", "saturatedFatContent", "carbohydrateContent", "sugarContent", "fiberContent", "proteinContent", "sodiumContent"]
@@ -14,22 +16,22 @@ print("Grabbing keys...")
 valid_recipes = []
 for i in tqdm(range(len(recipes))):
     item = recipes[i]
+
+    # Non-optional fields
     if "title" not in item:
         continue
     if "canonical_url" not in item:
         continue
-    if "instructions" not in item:
-        continue
     if "instructions_list" not in item:
-        continue
-    if "ingredients" not in item:
         continue
     if "ingredient_groups" not in item:
         continue
 
+    # Remove useless info
     if "ratings" in item:
         del item["ratings"]
 
+    # Nutrients is a nested field
     if "nutrients" in item:
         if item["nutrients"] == {}:
             item["nutrients"] = None
@@ -38,6 +40,7 @@ for i in tqdm(range(len(recipes))):
                 if key not in item["nutrients"]:
                     item["nutrients"][key] = None
 
+    # Populate optional fields
     for key in field_set:
         if key not in item:
             item[key] = None

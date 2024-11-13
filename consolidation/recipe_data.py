@@ -20,9 +20,7 @@ class RecipeData(BaseModel):
     # Recipe info
     title: str
     canonical_url: str
-    ingredients: list[str]
     ingredient_groups: list[IngredientGroups]
-    instructions: str
     instructions_list: list[str]
 
     # Metadata
