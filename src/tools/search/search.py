@@ -3,7 +3,7 @@ from torch import tensor
 from sentence_transformers import SentenceTransformer
 from sentence_transformers.quantization import quantize_embeddings, semantic_search_faiss
 
-from tools.recipe_data import RecipeData
+from src.tools.recipe_data import RecipeData
 
 
 
@@ -87,12 +87,12 @@ if __name__ == "__main__":
     import pickle
 
     print("Loading recipes...")
-    with open("./recipes_validated.json", "r") as f:
+    with open("./data/recipes_validated.json", "r") as f:
         raw_data = json.load(f)["recipes"]
     recipes = [RecipeData(**item) for item in raw_data]
     print(f"Loaded {len(recipes)} recipes!")
 
-    with open('recipe_embeddings.pickle', 'rb') as handle:
+    with open('./data/recipe_embeddings.pickle', 'rb') as handle:
         embeddings = pickle.load(handle)
 
     model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")

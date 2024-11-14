@@ -125,12 +125,19 @@ Where RecipeData is of the format:
 - [x] test out binary embedding queries
 - [x] repl demo
 - [x] todo: cleanup binarization
-- [ ] clean up tools
+- [x] clean up tools
+- [ ] finish refactoring
+    - [ ] data collection module
+        - [ ] test that it runs
+    - [ ] common/utils
+        - [ ] test that it runs
+    - [ ] service
 
 - [ ] fastapi wrapper
 - [ ] dockerized api
 - [ ] search api working
 - [ ] add templates for routes
 - [ ] get this working
+- [ ] download embeddings and recipes from S3 and unzip in docker build step
 - [ ] cleanup + docs
 - [ ] release v1
