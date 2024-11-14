@@ -1,7 +1,7 @@
 import os
 import csv
 
-DIR = "./recipe_lists"
+DIR = "./src/data/recipe_lists"
 
 files = os.listdir(DIR)
 
@@ -19,6 +19,6 @@ for file in files:
                 #     continue
                 recipes.append(row[0])
 
-with open(f"./all_recipes.csv", "w") as f:
+with open(f"./src/data/all_recipes.csv", "w") as f:
     writer = csv.writer(f, delimiter='\n')
     writer.writerows([recipes])

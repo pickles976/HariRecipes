@@ -14,7 +14,7 @@ def scrape_url(url: str) -> dict:
 start = datetime.now()
 
 urls = []
-with open('./all_recipes.csv', 'r') as f:
+with open('./src/data/all_recipes.csv', 'r') as f:
     reader = csv.reader(f, delimiter='\n')
     for row in reader:
         if len(row) == 1:
@@ -27,7 +27,7 @@ for i, url in enumerate(urls):
 
 print(f"FINISHED IN: {datetime.now() - start}")
 
-with open('./recipes.json', 'w') as f:
+with open('./src/data/recipes.json', 'w') as f:
     json.dump({"recipes" : recipes}, f)
 
 print(f"{len(recipes)} RECIPES!")

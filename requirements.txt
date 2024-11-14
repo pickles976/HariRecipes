@@ -17,6 +17,7 @@ diagnostic-common-diagnostics==1.11.0
 diagnostic-updater==1.11.0
 dynamic-reconfigure==1.7.3
 extruct==0.18.0
+faiss-cpu==1.9.0
 filelock==3.16.1
 fsspec==2024.10.0
 gazebo_plugins==2.9.2
@@ -142,7 +143,6 @@ smach==2.5.2
 smach-ros==2.5.2
 smclib==1.8.6
 soupsieve==2.6
-swig==4.2.1.post0
 sympy==1.13.1
 tf==1.13.2
 tf-conversions==1.13.2
@@ -157,6 +157,7 @@ topic-tools==1.17.0
 torch==2.5.1
 tqdm==4.67.0
 transformers==4.46.2
+triton==3.1.0
 typing_extensions==4.12.2
 urllib3==2.2.3
 w3lib==2.2.1
