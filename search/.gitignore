@@ -1,5 +1,0 @@
-*.json
-venv
-*.pickle
-*.json.gz
-__pycache__
