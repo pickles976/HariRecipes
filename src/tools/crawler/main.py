@@ -28,7 +28,7 @@ def crawl_site_threaded(item: dict) -> tuple[str, datetime]:
     print(f"Found: {len(spider.seen)} links!")
     print(f"Found: {len(spider.recipes)} recipes!")
     print("SAVING RECIPES")
-    with open(f"./recipe_lists/{spider.domain}_recipes_{len(spider.recipes)}.csv", "w") as f:
+    with open(f"./src/data/recipe_lists/{spider.domain}_recipes_{len(spider.recipes)}.csv", "w") as f:
         writer = csv.writer(f, delimiter='\n')
         writer.writerows([list(spider.recipes)])
 
@@ -36,7 +36,7 @@ def crawl_site_threaded(item: dict) -> tuple[str, datetime]:
 
 if __name__ == "__main__":
     
-    with open("./websites.json") as f:
+    with open("./src/data/websites.json") as f:
         items = json.load(f)["sources"]
 
     start = datetime.now()

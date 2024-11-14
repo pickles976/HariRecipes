@@ -141,3 +141,7 @@ Where RecipeData is of the format:
 - [ ] download embeddings and recipes from S3 and unzip in docker build step
 - [ ] cleanup + docs
 - [ ] release v1
+
+pip install sentence-transformers torch recipe-scrapers beautifulsoup4 tldextract tqdm pydantic faiss-cpu
+
+python -m src.tools.search.search
