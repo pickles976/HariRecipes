@@ -2,6 +2,7 @@
 
 import json
 from tqdm import tqdm
+from src.tools.recipe_data import RecipeData
 
 fields = ['language', 'description', 'nutrients', 'cooking_method', 'image', 'prep_time', 'ratings', 'host', 'cuisine', 'category', 'equipment', 'author', 'site_name', 'yields', 'canonical_url', 'title', 'total_time', 'ingredient_groups', 'instructions_list', 'cook_time']
 field_set = set(fields)
@@ -45,8 +46,9 @@ for i in tqdm(range(len(recipes))):
         if key not in item:
             item[key] = None
 
-    valid_recipes.append(item)
+
+    valid_recipes.append(RecipeData(**item))
 
 print("Saving json...")
 with open("./src/data/recipes_validated.json", "w") as f:
-    json.dump({"recipes": valid_recipes}, f)
+    json.dump({"recipes": [item.model_dump() for item in valid_recipes]}, f)
