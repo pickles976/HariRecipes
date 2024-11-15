@@ -7,3 +7,4 @@ recipes.zip
 *.json.gz
 *.jar
 __pycache__
+local

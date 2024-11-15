@@ -2,7 +2,7 @@ import os
 import csv
 import json
 import pickle
-from spider import Spider
+from src.tools.crawler.spider import Spider
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 
