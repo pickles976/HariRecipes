@@ -1,38 +1,54 @@
 from abc import ABC
 from src.recipe_data import RecipeData
 from src.service.db import AbstractRecipeRepo
-from src.common import load_binary_embeddings, load_full_embeddings
+from src.common import load_binary_embeddings, load_full_embeddings  # noqa
 import torch
 from torch import tensor
 from sentence_transformers import SentenceTransformer
-from sentence_transformers.quantization import quantize_embeddings, semantic_search_faiss
+from sentence_transformers.quantization import (
+    quantize_embeddings,
+    semantic_search_faiss,
+)
 
 
 class BaseVectorSearch(ABC):
-
     recipe_repo: AbstractRecipeRepo
     embeddings: tensor
-    model:SentenceTransformer
+    model: SentenceTransformer
 
-    def __init__(self, recipe_repo: AbstractRecipeRepo, embeddings: tensor, model:SentenceTransformer):
+    def __init__(
+        self,
+        recipe_repo: AbstractRecipeRepo,
+        embeddings: tensor,
+        model: SentenceTransformer,
+    ):
         self.recipe_repo = recipe_repo
         self.embeddings = embeddings
         self.model = model
 
-    def _query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, int, float]]:
+    def _query(
+        self, query_string: str, top_k: int = 20
+    ) -> list[tuple[RecipeData, int, float]]:
         raise NotImplementedError()
 
-    def query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, int, float]]:
+    def query(
+        self, query_string: str, top_k: int = 20
+    ) -> list[tuple[RecipeData, int, float]]:
         return self._query(query_string, top_k)
 
 
 class FloatVectorSearch(BaseVectorSearch):
-
-    def __init__(self, recipe_repo: AbstractRecipeRepo, embeddings: tensor, model:SentenceTransformer):
+    def __init__(
+        self,
+        recipe_repo: AbstractRecipeRepo,
+        embeddings: tensor,
+        model: SentenceTransformer,
+    ):
         super().__init__(recipe_repo, embeddings, model)
 
-    def _query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, int, float]]:
-
+    def _query(
+        self, query_string: str, top_k: int = 20
+    ) -> list[tuple[RecipeData, int, float]]:
         query_embedding = self.model.encode(query_string)
 
         similarity_scores = self.model.similarity(query_embedding, self.embeddings)[0]
@@ -41,19 +57,23 @@ class FloatVectorSearch(BaseVectorSearch):
         recipes = self.recipe_repo.list_recipes(indices)
 
         data = []
-        for index, score in zip(indices, score):
+        for index, score in zip(indices, scores):
             recipe = recipes[index]
             data.append((recipe, index, score))
         return data
 
-    
-class BinaryVectorSearch(BaseVectorSearch):
 
+class BinaryVectorSearch(BaseVectorSearch):
     has_float_embeddings: bool
     binary_embeddings: tensor
     corpus_precision: str
 
-    def __init__(self, recipe_repo: AbstractRecipeRepo, embeddings: tensor, model:SentenceTransformer):
+    def __init__(
+        self,
+        recipe_repo: AbstractRecipeRepo,
+        embeddings: tensor,
+        model: SentenceTransformer,
+    ):
         super().__init__(recipe_repo, embeddings, model)
 
         self.corpus_index = None
@@ -64,19 +84,24 @@ class BinaryVectorSearch(BaseVectorSearch):
         print(f"Loaded embeddings with precision level: {self.embeddings.dtype}")
 
         if self.has_float_embeddings:
-            self.binary_embeddings = quantize_embeddings(self.embeddings, precision=self.corpus_precision)
+            self.binary_embeddings = quantize_embeddings(
+                self.embeddings, precision=self.corpus_precision
+            )
         else:
             self.binary_embeddings = embeddings
 
-    def _query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, int, float]]:
-        
+    def _query(
+        self, query_string: str, top_k: int = 20
+    ) -> list[tuple[RecipeData, int, float]]:
         query_embeddings = self.model.encode([query_string], normalize_embeddings=True)
 
         if self.has_float_embeddings:
             results, search_time, self.corpus_index = semantic_search_faiss(
                 query_embeddings,
                 corpus_index=self.corpus_index,
-                corpus_embeddings=self.binary_embeddings if self.corpus_index is None else None,
+                corpus_embeddings=self.binary_embeddings
+                if self.corpus_index is None
+                else None,
                 corpus_precision=self.corpus_precision,
                 top_k=top_k,
                 calibration_embeddings=self.embeddings,
@@ -89,7 +114,9 @@ class BinaryVectorSearch(BaseVectorSearch):
             results, search_time, self.corpus_index = semantic_search_faiss(
                 query_embeddings,
                 corpus_index=self.corpus_index,
-                corpus_embeddings=self.binary_embeddings if self.corpus_index is None else None,
+                corpus_embeddings=self.binary_embeddings
+                if self.corpus_index is None
+                else None,
                 corpus_precision=self.corpus_precision,
                 top_k=top_k,
                 exact=True,
@@ -106,8 +133,8 @@ class BinaryVectorSearch(BaseVectorSearch):
             data.append((recipe, index, score))
         return data
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     import time
     from src.service.db import RecipeRepoJSON, RecipeRepoSQLite
 
@@ -125,7 +152,7 @@ if __name__ == "__main__":
 
     # searcher = FloatVectorSearch(recipes, embeddings, model)
     searcher = BinaryVectorSearch(recipe_repo, embeddings, model)
-    
+
     while True:
         query = input("Enter a query: ")
         start = time.time()

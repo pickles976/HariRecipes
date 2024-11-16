@@ -1,9 +1,11 @@
 from typing import Optional
 from pydantic import BaseModel
 
+
 class IngredientGroups(BaseModel):
     ingredients: list[str]
     purpose: Optional[str]
+
 
 class Nutrients(BaseModel):
     calories: Optional[str]
@@ -15,8 +17,8 @@ class Nutrients(BaseModel):
     proteinContent: Optional[str]
     sodiumContent: Optional[str]
 
-class RecipeData(BaseModel):
 
+class RecipeData(BaseModel):
     # Recipe info
     title: str
     canonical_url: str
@@ -42,10 +44,11 @@ class RecipeData(BaseModel):
     equipment: Optional[list[str]]
     description: Optional[str]
 
+
 def data_to_str(data: RecipeData) -> str:
     """Extract the relevant parts of a recipe into a string used for vector encoding."""
 
-    ingredients = f"Ingredients: \n"
+    ingredients = "Ingredients: \n"
     for ingredient in data.ingredients:
         ingredients += f"- {ingredient}\n"
 
@@ -54,11 +57,9 @@ def data_to_str(data: RecipeData) -> str:
 {ingredients}
 Instructions: 
 {data.instructions}"""
-    
+
     if data.description:
         text += "\n"
         text += data.description
 
     return text
-
-

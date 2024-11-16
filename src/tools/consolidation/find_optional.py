@@ -27,4 +27,3 @@ print(cnt)
 
 print(f"Optional: {optional}")
 print(f"Non-Optional: {non_optional}")
-
