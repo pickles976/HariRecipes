@@ -25,12 +25,14 @@ class RecipeRepoSQLite(AbstractRecipeRepo):
         self.conn = sqlite3.connect(SQLITE_FILENAME)
         self.cursor = self.conn.cursor()
 
-    def list_recipes(self, indices: list[int]) -> list[RecipeData]:
+    def list_recipes(self, indices: list[int]) -> dict[int, RecipeData]:
+        """Return a dict mapping indices to RecipeData because order is not guaranteed"""
         indices_plus_one = [i + 1 for i in indices] # SQLite IDs start at 1
         query = f"SELECT * FROM recipes WHERE id IN ({','.join(['?'] * len(indices))})"
         self.cursor.execute(query, indices_plus_one)
         recipe_items = self.cursor.fetchall()
-        return [RecipeData(**json.loads(item[1])) for item in recipe_items]
+        # Convert sqlite id to zero-index
+        return {item[0] - 1: RecipeData(**json.loads(item[1])) for item in recipe_items}
 
 class RecipeRepoJSON(AbstractRecipeRepo):
     """Concrete implementation that loads all recipes into memory"""
@@ -43,10 +45,10 @@ class RecipeRepoJSON(AbstractRecipeRepo):
             raw_data = json.load(f)["recipes"]
         self.recipes = [RecipeData(**item) for item in raw_data]
 
-    def list_recipes(self, indices: list[int]) -> list[RecipeData]:
-        recipes = []
+    def list_recipes(self, indices: list[int]) -> dict[int, RecipeData]:
+        recipes = {}
         for index in indices:
-            recipes.append(self.recipes[index])
+            recipes[index] = self.recipes[index]
         return recipes
 
 if __name__ == "__main__":

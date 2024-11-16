@@ -40,7 +40,11 @@ class FloatVectorSearch(BaseVectorSearch):
 
         recipes = self.recipe_repo.list_recipes(indices)
 
-        return zip(recipes, indices, scores)
+        data = []
+        for index, score in zip(indices, score):
+            recipe = recipes[index]
+            data.append((recipe, index, score))
+        return data
 
     
 class BinaryVectorSearch(BaseVectorSearch):
@@ -95,7 +99,12 @@ class BinaryVectorSearch(BaseVectorSearch):
         indices = [entry["corpus_id"] for entry in results[0]]
         scores = [entry["score"] for entry in results[0]]
         recipes = self.recipe_repo.list_recipes(indices)
-        return zip(recipes, indices, scores)
+
+        data = []
+        for index, score in zip(indices, scores):
+            recipe = recipes[index]
+            data.append((recipe, index, score))
+        return data
 
 if __name__ == "__main__":
 
