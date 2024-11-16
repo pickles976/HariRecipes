@@ -6,11 +6,8 @@ services:
       .
     ports:
       - "8000:8000"          # Map port 8000 on host to 8000 in the container
-    environment:
-      - LOG_LEVEL=DEBUG
-      - FLOAT32_SEARCH=0
-      - BINARY_EMBEDDINGS=1
-      - CUDA=0      
+    env_file:
+      .env
     networks:
       - fastapi-network      # Define a network if needed (optional)
     restart: unless-stopped  # Automatically restart the container unless it is manually stopped

@@ -4,7 +4,7 @@ from src.recipe_data import RecipeData
 env = Environment(loader=PackageLoader("app"), autoescape=select_autoescape())
 
 
-def home_template(base_url: str) -> str:
+def home_template() -> str:
     template = env.get_template("index.html")
     return template.render()
 
