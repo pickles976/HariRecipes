@@ -6,11 +6,14 @@ from abc import ABC
 from src.recipe_data import RecipeData
 from src.common import SQLITE_FILENAME, JSON_FILENAME
 
-class RecipeRepo(ABC):
+class AbstractRecipeRepo(ABC):
+    """Abstract interface for Recipe access"""
+
     def list_recipes(self, indices: list[int]) -> list[RecipeData]:
         raise NotImplementedError()
 
-class RecipeRepoSQLite(RecipeRepo):
+class RecipeRepoSQLite(AbstractRecipeRepo):
+    """Concrete implementation using SQLite for persistence"""
 
     conn: sqlite3.Connection
     cursor: sqlite3.Cursor
@@ -29,7 +32,8 @@ class RecipeRepoSQLite(RecipeRepo):
         recipe_items = self.cursor.fetchall()
         return [RecipeData(**json.loads(item[1])) for item in recipe_items]
 
-class RecipeRepoJSON(RecipeRepo):
+class RecipeRepoJSON(AbstractRecipeRepo):
+    """Concrete implementation that loads all recipes into memory"""
 
     recipes: list[RecipeData]
     
@@ -47,7 +51,7 @@ class RecipeRepoJSON(RecipeRepo):
 
 if __name__ == "__main__":
     """
-        Run this file as a script to generate the sqlite data:
+        Run this file as a script to generate the sqlite data from json:
         `python -m src.service.db`
     """
 
@@ -80,5 +84,7 @@ if __name__ == "__main__":
 
     # Test the repo
     recipe_repo = RecipeRepoSQLite()
-    recipes = recipe_repo.list_recipes([1, 2, 3, 1000])
+    recipes = recipe_repo.list_recipes([0, 1, 2, 1000])
+
+    # first recipe should be Sabor Sazon
     print(recipes)
