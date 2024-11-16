@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  fastapi-service:
+    build:
+      .
+    ports:
+      - "8000:8000"          # Map port 8000 on host to 8000 in the container
+    environment:
+      - FLOAT32_SEARCH=0
+      - BINARY_EMBEDDINGS=1
+      - CUDA=0      
+    networks:
+      - fastapi-network      # Define a network if needed (optional)
+    restart: unless-stopped  # Automatically restart the container unless it is manually stopped
+
+# Optional: If you need any additional networks
+networks:
+  fastapi-network:
+    driver: bridge

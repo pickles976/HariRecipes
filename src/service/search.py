@@ -1,20 +1,20 @@
+from abc import ABC
 from src.recipe_data import RecipeData
 from src.service.db import AbstractRecipeRepo
-from src.common import EMBEDDINGS_FILENAME, BINARY_EMBEDDINGS_FILENAME
-
+from src.common import load_binary_embeddings, load_full_embeddings
 import torch
 from torch import tensor
 from sentence_transformers import SentenceTransformer
 from sentence_transformers.quantization import quantize_embeddings, semantic_search_faiss
 
 
-class VectorSearch:
+class BaseVectorSearch(ABC):
 
-    recipe_repo: RecipeRepo
+    recipe_repo: AbstractRecipeRepo
     embeddings: tensor
     model:SentenceTransformer
 
-    def __init__(self, recipe_repo: RecipeRepo, embeddings: tensor, model:SentenceTransformer):
+    def __init__(self, recipe_repo: AbstractRecipeRepo, embeddings: tensor, model:SentenceTransformer):
         self.recipe_repo = recipe_repo
         self.embeddings = embeddings
         self.model = model
@@ -26,9 +26,9 @@ class VectorSearch:
         return self._query(query_string, top_k)
 
 
-class FloatVectorSearch(VectorSearch):
+class FloatVectorSearch(BaseVectorSearch):
 
-    def __init__(self, recipe_repo: RecipeRepo, embeddings: tensor, model:SentenceTransformer):
+    def __init__(self, recipe_repo: AbstractRecipeRepo, embeddings: tensor, model:SentenceTransformer):
         super().__init__(recipe_repo, embeddings, model)
 
     def _query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, float]]:
@@ -46,7 +46,7 @@ class FloatVectorSearch(VectorSearch):
         return data
 
     
-class BinaryVectorSearch(VectorSearch):
+class BinaryVectorSearch(BaseVectorSearch):
 
     has_float_embeddings: bool
     binary_embeddings: tensor
@@ -117,11 +117,8 @@ if __name__ == "__main__":
         print("Loading recipes from json. This will consume more memory...")
         recipe_repo = RecipeRepoJSON()
 
-    with open(EMBEDDINGS_FILENAME, 'rb') as handle:
-        embeddings = pickle.load(handle)
-
-    # with open(BINARY_EMBEDDINGS_FILENAME, 'rb') as handle:
-    #     embeddings = pickle.load(handle)
+    # embeddings = load_full_embeddings()
+    embeddings = load_binary_embeddings()
 
     model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 
