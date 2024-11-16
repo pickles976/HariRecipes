@@ -77,6 +77,13 @@ But really, I just like the way it sounds.
 
 
 #### TODO
+- [x] sqlite db for lower RAM usage
+- [x] create a json-based repo class
+- [x] refactor search to take repo class via DI
+
+- [ ] move data folder out of SRC
+- [ ] pull out common stuff
+
 - [ ] fastapi wrapper
 - [ ] dockerized api
 - [ ] search api working
@@ -86,7 +93,13 @@ But really, I just like the way it sounds.
 - [ ] cleanup + docs
 - [ ] load tests with locust
 
-- [ ] push to digitalocean
+- [ ] cloudflare tunnel on Raspberry pi
 - [ ] get working
 - [ ] configure SSL
+- [ ] test
 - [ ] release
+
+# Performance
+
+In-memory 4.4GB RAM usage
+SQLite XGB RAM usage

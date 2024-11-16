@@ -1,6 +1,6 @@
 # https://github.com/UKPLab/sentence-transformers/blob/master/examples/applications/embedding-quantization/semantic_search_faiss.py
 import json
-from tools.recipe_data import RecipeData
+from recipe_data import RecipeData
 import time
 import pickle
 
