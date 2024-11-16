@@ -1,5 +1,6 @@
-import json
-from search.recipe_data import RecipeData, data_to_str
+from src.recipe_data import data_to_str
+from common import read_recipe_json, EMBEDDINGS_FILENAME
+
 import time
 import pickle
 
@@ -7,15 +8,14 @@ import torch
 from sentence_transformers import SentenceTransformer
 
 print("Loading recipes...")
-with open("./recipes_validated.json", "r") as f:
-    raw_data = json.load(f)["recipes"]
-recipes = [RecipeData(**item) for item in raw_data]
+recipes = read_recipe_json()
 print(f"Loaded {len(recipes)} recipes!")
 
 print("Loading Sentence Transformer...")
 try:
     embedder = SentenceTransformer("all-MiniLM-L6-v2", device="cuda")
 except:
+    print("CUDA NOT FOUND! Defaulting to CPU...")
     embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
 # Corpus consisting of example titles
@@ -35,5 +35,5 @@ print(f"Generated embeddings in {int(time.time() - start)}s")
 
 # Save as pickle
 print("Pickling embeddings...")
-with open('recipe_embeddings.pickle', 'wb') as handle:
+with open(EMBEDDINGS_FILENAME, 'wb') as handle:
     pickle.dump(corpus_embeddings, handle, protocol=pickle.HIGHEST_PROTOCOL)

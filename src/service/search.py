@@ -1,4 +1,6 @@
-from src.tools.recipe_data import RecipeData
+from src.recipe_data import RecipeData
+from src.service.db import RecipeRepo
+from src.common import EMBEDDINGS_FILENAME
 
 import torch
 from torch import tensor
@@ -6,16 +8,14 @@ from sentence_transformers import SentenceTransformer
 from sentence_transformers.quantization import quantize_embeddings, semantic_search_faiss
 
 
-
-
 class VectorSearch:
 
-    recipes: list[RecipeData]
+    recipe_repo: RecipeRepo
     embeddings: tensor
     model:SentenceTransformer
 
-    def __init__(self, recipes: list[RecipeData], embeddings: tensor, model:SentenceTransformer):
-        self.recipes = recipes
+    def __init__(self, recipe_repo: RecipeRepo, embeddings: tensor, model:SentenceTransformer):
+        self.recipe_repo = recipe_repo
         self.embeddings = embeddings
         self.model = model
 
@@ -28,8 +28,8 @@ class VectorSearch:
 
 class FloatVectorSearch(VectorSearch):
 
-    def __init__(self, recipes: list[RecipeData], embeddings: tensor, model:SentenceTransformer):
-        super().__init__(recipes, embeddings, model)
+    def __init__(self, recipe_repo: RecipeRepo, embeddings: tensor, model:SentenceTransformer):
+        super().__init__(recipe_repo, embeddings, model)
 
     def _query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, float]]:
 
@@ -38,9 +38,11 @@ class FloatVectorSearch(VectorSearch):
         similarity_scores = self.model.similarity(query_embedding, self.embeddings)[0]
         scores, indices = torch.topk(similarity_scores, k=top_k)
 
+        recipes = self.recipe_repo.list_recipes(indices)
+
         data = []
-        for score, idx in zip(scores, indices):
-            data.append((self.recipes[idx], score))
+        for score, recipe in zip(scores, recipes):
+            data.append((recipe, score))
         return data
 
     
@@ -49,8 +51,8 @@ class BinaryVectorSearch(VectorSearch):
     binary_embeddings: tensor
     corpus_precision: str
 
-    def __init__(self, recipes: list[RecipeData], embeddings: tensor, model:SentenceTransformer):
-        super().__init__(recipes, embeddings, model)
+    def __init__(self, recipe_repo: RecipeRepo, embeddings: tensor, model:SentenceTransformer):
+        super().__init__(recipe_repo, embeddings, model)
         self.corpus_precision = "ubinary"
         self.binary_embeddings = quantize_embeddings(
             self.embeddings, 
@@ -62,7 +64,6 @@ class BinaryVectorSearch(VectorSearch):
         
         query_embeddings = model.encode([query_string], normalize_embeddings=True)
 
-        # 8. Perform semantic search using FAISS
         results, search_time, self.corpus_index = semantic_search_faiss(
             query_embeddings,
             corpus_index=self.corpus_index,
@@ -76,30 +77,35 @@ class BinaryVectorSearch(VectorSearch):
             output_index=True,
         )
 
+        indices = [entry["corpus_id"] for entry in results[0]]
+        scores = [entry["score"] for entry in results[0]]
+        recipes = self.recipe_repo.list_recipes(indices)
+
         data = []
-        for entry in results[0]:
-            data.append((self.recipes[entry["corpus_id"]], entry["score"]))
+        for score, recipe in zip(scores, recipes):
+            data.append((recipe, score))
         return data
 
 if __name__ == "__main__":
 
-    import json
     import time
     import pickle
+    from src.service.db import RecipeRepoJSON, RecipeRepoSQLite
 
-    print("Loading recipes...")
-    with open("./src/data/recipes_validated.json", "r") as f:
-        raw_data = json.load(f)["recipes"]
-    recipes = [RecipeData(**item) for item in raw_data]
-    print(f"Loaded {len(recipes)} recipes!")
+    try:
+        recipe_repo = RecipeRepoSQLite()
+    except Exception as e:
+        print(f"Failed to load sqlite with exception: {e}")
+        print("Loading recipes from json. This will consume more memory...")
+        recipe_repo = RecipeRepoJSON()
 
-    with open('./src/data/recipe_embeddings.pickle', 'rb') as handle:
+    with open(EMBEDDINGS_FILENAME, 'rb') as handle:
         embeddings = pickle.load(handle)
 
     model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 
     # searcher = FloatVectorSearch(recipes, embeddings, model)
-    searcher = BinaryVectorSearch(recipes, embeddings, model)
+    searcher = BinaryVectorSearch(recipe_repo, embeddings, model)
     
     while True:
         query = input("Enter a query: ")

@@ -2,7 +2,7 @@
 
 import json
 from tqdm import tqdm
-from src.tools.recipe_data import RecipeData
+from recipe_data import RecipeData
 
 fields = ['language', 'description', 'nutrients', 'cooking_method', 'image', 'prep_time', 'ratings', 'host', 'cuisine', 'category', 'equipment', 'author', 'site_name', 'yields', 'canonical_url', 'title', 'total_time', 'ingredient_groups', 'instructions_list', 'cook_time']
 field_set = set(fields)

@@ -43,6 +43,7 @@ class RecipeData(BaseModel):
     description: Optional[str]
 
 def data_to_str(data: RecipeData) -> str:
+    """Extract the relevant parts of a recipe into a string used for vector encoding."""
 
     ingredients = f"Ingredients: \n"
     for ingredient in data.ingredients:
