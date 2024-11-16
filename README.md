@@ -131,3 +131,4 @@ But really, I just like the way it sounds.
 - [ ] configure SSL
 - [ ] test
 - [ ] release
+- [ ] remove docs images, make blog post instead
