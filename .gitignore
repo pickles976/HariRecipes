@@ -6,5 +6,6 @@ recipes.zip
 */recipes_validated.zip
 *.json.gz
 *.jar
+*.log
 __pycache__
 local
