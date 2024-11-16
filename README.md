@@ -112,17 +112,6 @@ But really, I just like the way it sounds.
 
 
 #### TODO
-<!-- Example recipe: http://localhost:8000/recipe/279276 -->
-<!-- https://realpython.com/primer-on-jinja-templating/#render-your-first-jinja-template -->
-- [ ] add templates for routes
-    - [x] recipe list template
-    - [ ] home template with search bar
-    - [ ] re-use search bar from home template
-    - [ ] recipe detail template
-    - [ ] slight CSS styling to make it look less shitty
-    - [ ] add raw json download endpoint
-<!-- http://bettermotherfuckingwebsite.com/ -->
-<!-- https://evenbettermotherfucking.website/ -->
 - [ ] format with ruff
 - [ ] cleanup + docs
 
@@ -134,11 +123,11 @@ But really, I just like the way it sounds.
 - [ ] get working on laptop
 - [ ] ask someone else for help testing locally
 
-- [ ] go back and clean up the recipes list, remove any recipes that don't have real instructions or ingredients lists
-
 - [ ] host on digitalocean
 - [ ] get working
 - [ ] configure SSL
 - [ ] test
 - [ ] release
 - [ ] remove docs images, make blog post instead
+
+- [ ] go back and clean up the recipes list, remove any recipes that don't have real instructions or ingredients lists

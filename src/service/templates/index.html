@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hari Recipes</title>
+    <style>
+      body {
+            margin: 5%; 
+            background: #f2f2f2; 
+            color: #444444; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            font-size: 16px; 
+            line-height: 1.4; 
+            text-shadow: 0 1px 0 #ffffff; 
+            max-width: 73%;
+      }
+      code {
+        background: white;
+      }
+      a {border-bottom: 1px solid #444444; color: #444444; text-decoration: none;}
+      a:hover {border-bottom: 0;}
+    </style>
+  </head>
+  <body>
+    <a href="/"><h1>Hari Recipes</h1></a>
+
+    <form id="search-form" method="GET" action="/recipe_query">
+      <label for="query">Search: </label>
+      <input type="text" id="query" name="query" value="{{ query }}""><br>
+      <label for="numResults"># Results: </label>
+      <input type="text" id="num_items" name="num_items" value="{{ num_items }}""><br>
+      <input type="submit" value="Submit">
+    </form> 
+
+    {% if recipes %}
+      {% include "query_results.html" %}
+    {% endif %}
+  
+    {% if recipe %}
+      {% include "recipe_detail.html" %}
+    {% endif %}
+    
+  </body>
+  </script>
+</html>
