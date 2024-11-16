@@ -112,7 +112,6 @@ But really, I just like the way it sounds.
 
 
 #### TODO
-- [ ] format with ruff
 - [ ] cleanup + docs
 
 - [ ] dockerized api

@@ -4,10 +4,40 @@ import json
 from tqdm import tqdm
 from recipe_data import RecipeData
 
-fields = ['language', 'description', 'nutrients', 'cooking_method', 'image', 'prep_time', 'ratings', 'host', 'cuisine', 'category', 'equipment', 'author', 'site_name', 'yields', 'canonical_url', 'title', 'total_time', 'ingredient_groups', 'instructions_list', 'cook_time']
+fields = [
+    "language",
+    "description",
+    "nutrients",
+    "cooking_method",
+    "image",
+    "prep_time",
+    "ratings",
+    "host",
+    "cuisine",
+    "category",
+    "equipment",
+    "author",
+    "site_name",
+    "yields",
+    "canonical_url",
+    "title",
+    "total_time",
+    "ingredient_groups",
+    "instructions_list",
+    "cook_time",
+]
 field_set = set(fields)
 
-nutrient_fields = ["calories", "fatContent", "saturatedFatContent", "carbohydrateContent", "sugarContent", "fiberContent", "proteinContent", "sodiumContent"]
+nutrient_fields = [
+    "calories",
+    "fatContent",
+    "saturatedFatContent",
+    "carbohydrateContent",
+    "sugarContent",
+    "fiberContent",
+    "proteinContent",
+    "sodiumContent",
+]
 
 print("Loading json...")
 with open("./data/recipes.json", "r") as f:
@@ -45,7 +75,6 @@ for i in tqdm(range(len(recipes))):
     for key in field_set:
         if key not in item:
             item[key] = None
-
 
     valid_recipes.append(RecipeData(**item))
 

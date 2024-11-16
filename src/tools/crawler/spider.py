@@ -9,20 +9,21 @@ import pickle
 DEPTH_LIMIT = 10
 CHECKPOINT = 5000
 
+
 def read_url(url: str) -> str:
     page = urlopen(url)
     html_bytes = page.read()
     return html_bytes.decode("utf-8")
 
-def is_json_recipe(data) -> bool:
 
+def is_json_recipe(data) -> bool:
     # Type of recipe or article
     if "@type" in data and (
         "Recipe" in data["@type"]
         # or "Article" in data["@type"]
     ):
         return True
-    
+
     # Type of Recipe/Article is in graph
     if "@graph" in data:
         if isinstance(data["@graph"], list):
@@ -35,21 +36,21 @@ def is_json_recipe(data) -> bool:
 
     return False
 
-class Spider: 
 
+class Spider:
     def __init__(
-            self, 
-            url: str,
-            root_url: str, 
-            recipe_prefix: Optional[str] = None, 
-            recipe_schema: Optional[str] = None,
-            ignore: Optional[list[str]] = None,
-            subdomain: Optional[str] = None,
-            visited_links: Optional[list[str]] = None,
-            visited_recipes: Optional[list[str]] = None,
-            *args,
-            **kwargs
-        ) -> None:
+        self,
+        url: str,
+        root_url: str,
+        recipe_prefix: Optional[str] = None,
+        recipe_schema: Optional[str] = None,
+        ignore: Optional[list[str]] = None,
+        subdomain: Optional[str] = None,
+        visited_links: Optional[list[str]] = None,
+        visited_recipes: Optional[list[str]] = None,
+        *args,
+        **kwargs,
+    ) -> None:
         """
         An object for web scraping. Tracks visited links and identified recipes.
 
@@ -67,7 +68,7 @@ class Spider:
         self.recipe_schema = recipe_schema
         self.ignore = ignore
         self.subdomain = subdomain
-        
+
         self.seen = set()
         self.recipes = set()
         self.domain = tldextract.extract(url).domain
@@ -82,29 +83,27 @@ class Spider:
         print(f"Received extra arguments: {args} {kwargs}. Ignoring...")
 
     def should_ignore_link(self, url: str) -> bool:
-                
         # Ignore links from different websites
         if tldextract.extract(url).domain != self.domain:
             return True
-        
+
         # Ignore other subdomains if that matters (for example, if we want cooking.en, don't go to cooking.fr)
         if self.subdomain is not None:
             if tldextract.extract(url).subdomain != self.subdomain:
                 return True
-        
+
         # Ignore URLs with keywords
         if self.ignore is not None:
             for item in self.ignore:
                 if item in url:
                     return True
-        
-        return False
-        
-    def checkpoint(self):
 
+        return False
+
+    def checkpoint(self):
         """Save the recipes at the current checkpoint"""
         print("CHECKPOINT REACHED! SAVING...")
-        with open(f'{self.domain}.pickle', 'wb') as f:
+        with open(f"{self.domain}.pickle", "wb") as f:
             pickle.dump(self, f, protocol=pickle.HIGHEST_PROTOCOL)
 
     def add_recipe(self, recipe_url: str):
@@ -114,8 +113,7 @@ class Spider:
             self.checkpoint()
 
     # DFS walker
-    def walk_page(self, url: str, depth: int=0):
-
+    def walk_page(self, url: str, depth: int = 0):
         self.current_url = url
 
         if depth > DEPTH_LIMIT:
@@ -130,13 +128,12 @@ class Spider:
             print(f"Failed to reach url with exception: {e}")
             return
 
-        soup = BeautifulSoup(current_page, 'html.parser')
+        soup = BeautifulSoup(current_page, "html.parser")
 
         # Check if a script tag with the recipe schema exists
-        scripts = soup.find_all('script', type="application/ld+json")
+        scripts = soup.find_all("script", type="application/ld+json")
 
         for item in scripts:
-
             # Check that script has the correct class, if we provided a schema (saves us time)
             if self.recipe_schema is not None:
                 if item.get("class") is None:
@@ -167,7 +164,7 @@ class Spider:
 
         # This only works for grouprecipes.com
         if self.domain == "grouprecipes":
-            body = soup.find_all('body')
+            body = soup.find_all("body")
             if body is not None:
                 for item in body:
                     tag_class = item.get("class")
@@ -177,12 +174,10 @@ class Spider:
                     if "hrecipe" in tag_class:
                         self.add_recipe(url)
                         break
-                
 
         # Loop over every link on the page
-        for link in soup.find_all('a'):
-
-            link_url = link.get('href')
+        for link in soup.find_all("a"):
+            link_url = link.get("href")
 
             if link_url is None:
                 continue
@@ -190,7 +185,7 @@ class Spider:
             # Handle routes
             if tldextract.extract(link_url).domain == "":
                 link_url = self.url + link_url
-            
+
             # Filter out authentication, etc
             if self.should_ignore_link(link_url):
                 continue
@@ -206,7 +201,7 @@ class Spider:
             if self.recipe_prefix is None:
                 stack.append(link_url)
                 continue
-        
+
             # URL is a recipe
             if self.recipe_prefix in link_url:
                 self.add_recipe(link_url)
@@ -214,7 +209,7 @@ class Spider:
                 stack.append(link_url)
 
         for link in stack:
-            self.walk_page(link, depth+1)
+            self.walk_page(link, depth + 1)
 
     def start(self):
         return self.walk_page(self.current_url)
