@@ -10,7 +10,7 @@
   <ul>
   {% for recipe, index, score in recipes %}
     <li>
-      <a href="{{base_url}}/{{index}}"><em>{{ recipe.title }}:</em>{{'%0.2f'|format(score)}}</a>
+      <a href="{{base_url}}/recipe/{{index}}"><em>{{ recipe.title }}:</em>{{'%0.2f'|format(score)}}</a>
     </li>
   {% endfor %}
   </ul>

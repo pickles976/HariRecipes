@@ -6,7 +6,7 @@ import logging
 # Add the 'src' directory to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse
 from sentence_transformers import SentenceTransformer
 
@@ -61,4 +61,11 @@ async def recipe_query(query, num_items: int = 20):
     logger.debug(f"Got {top_k} results in {time.time() - start:.3f}s")
     return query_results_template(data)
 
-# TODO: Recipe detail page
+@app.get("/recipe/{index}")
+async def recipe(index: int):
+    recipes = recipe_repo.list_recipes([index])
+
+    if len(recipes) != 1:
+        raise HTTPException(status_code=404, detail="Recipe not found")
+
+    return list(recipes.values())[0].model_dump()

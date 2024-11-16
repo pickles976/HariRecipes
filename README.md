@@ -73,6 +73,12 @@ Generates the sqlite file from `recipes_validated.json` if none exists. Runs an 
 python -m src.service.db
 ```
 
+#### Web API
+
+```
+fastapi dev ./src/service/app.py
+```
+
 # Performance
 
 To get this project to run on smaller VMs, we need to restrict memory usage. The first memory-saving feature is to put our recipe data into a SQLite file that can live on-disk. Query speed with batching is slower than reading from a list in-memory, but negligible compared to the time taken up by the similarity search.
@@ -106,6 +112,7 @@ But really, I just like the way it sounds.
 
 
 #### TODO
+<!-- Example recipe: http://localhost:8000/recipe/279276 -->
 <!-- https://realpython.com/primer-on-jinja-templating/#render-your-first-jinja-template -->
 - [ ] add templates for routes
     - [x] recipe list template
@@ -113,6 +120,7 @@ But really, I just like the way it sounds.
     - [ ] re-use search bar from home template
     - [ ] recipe detail template
     - [ ] slight CSS styling to make it look less shitty
+    - [ ] add raw json download endpoint
 <!-- http://bettermotherfuckingwebsite.com/ -->
 <!-- https://evenbettermotherfucking.website/ -->
 - [ ] format with ruff
@@ -125,6 +133,8 @@ But really, I just like the way it sounds.
 - [ ] load tests with locust
 - [ ] get working on laptop
 - [ ] ask someone else for help testing locally
+
+- [ ] go back and clean up the recipes list, remove any recipes that don't have real instructions or ingredients lists
 
 - [ ] host on digitalocean
 - [ ] get working
