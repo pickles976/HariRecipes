@@ -19,6 +19,7 @@ from src.service.templating import (
 )
 from src.common import load_binary_embeddings, load_full_embeddings
 
+# CONFIGURATION
 MAX_RESULTS = 250
 LOG_LEVEL = os.getenv("LOG_LEVEL", default="DEBUG")
 BASE_URL = os.getenv("BASE_URL", default="http://localhost:8000")
@@ -38,6 +39,7 @@ logger.info(f"FLOAT_32_SEARCH: {FLOAT_32_SEARCH}")
 logger.info(f"BINARY_EMBEDDINGS: {BINARY_EMBEDDINGS}")
 logger.info(f"CUDA: {CUDA}")
 
+# SERVICES
 recipe_repo = RecipeRepoSQLite()
 
 if CUDA == 1:
@@ -55,8 +57,8 @@ else:
         embeddings = load_full_embeddings()
     vector_search = BinaryVectorSearch(recipe_repo, embeddings, model)
 
+# ACTUAL APP
 app = FastAPI()
-
 
 @app.get("/", response_class=HTMLResponse)
 async def home():

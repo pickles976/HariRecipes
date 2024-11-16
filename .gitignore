@@ -9,3 +9,5 @@ recipes.zip
 *.log
 __pycache__
 local
+.vscode
+.ruff_cache
