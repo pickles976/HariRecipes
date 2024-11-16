@@ -117,6 +117,7 @@ But really, I just like the way it sounds.
 - [ ] dockerized api
     - [ ] upgrade distro to WSL2
     - [ ] get working
+    
 - [ ] add basic configuration with .env file in docker compose
 - [ ] load tests with locust
 - [ ] get working on laptop
