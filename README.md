@@ -11,7 +11,7 @@ This project would not be possible without [Recipe Scrapers](https://github.com/
 
 ```shell
 sh ./download_files.sh
-docker compose up
+docker compose up --build
 ```
 
 ### Windows
@@ -35,11 +35,15 @@ This project has only been tested for 3.12.7
 
 #### Crawler
 
+Crawls all the websites in `websites.json` and uses some metadata to save all urls which contain recipes.
+
 ```shell
 python -m src.tools.crawler.main
 ```
 
 #### Scraper
+
+Loops over every url in `all_recipes.csv` and saves them to `recipes.json`
 
 ```shell
 python -m src.tools.scraper.main
@@ -47,15 +51,26 @@ python -m src.tools.scraper.main
 
 #### Cleanup
 
+Make sure all recipes conform to the Pydantic RecipeData model, saves them to `recipes_validated.json`
+
 ```shell
-# Make sure all recipes conform to the Pydantic RecipeData model
 python -m src.tools.validate_recipes
 ```
 
-#### CLI Search
+#### Search
+
+Test out the search functionality in the commandline.
 
 ```shell 
 python -m src.service.search
+```
+
+#### Sqlite
+
+Generates the sqlite file from `recipes_validated.json` if none exists. Runs an example SQL statement.
+
+```shell 
+python -m src.service.db
 ```
 
 # Performance
