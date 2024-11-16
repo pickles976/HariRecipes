@@ -1,0 +1,40 @@
+<h1>{{ recipe.title }}</h1>
+
+
+{% if recipe.image %}
+    <div>
+        <img src="{{recipe.image}}" style="max-width: 15vw;"/>
+    </div>
+{% endif %}
+
+<div>
+    <a href="{{recipe.canonical_url}}">Source Link</a>
+</div>
+
+<div>
+    <a href="{{base_url}}/recipe/json/?index={{index}}">Download Json</a>
+</div>
+
+<h4>Ingredients:</h4>
+{% for group in recipe.ingredient_groups %}
+    <ul>
+    {% for item in group %}
+        {% if item[0] == "ingredients" %}
+            {% for ingredient in item[1] %}
+                <li>
+                    <em>{{ ingredient }}</em>
+                </li>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endfor %}
+
+<h4>Instructions:</h4>
+<ul>
+{% for instruction in recipe.instructions_list %}
+        <li>
+            <em>{{ instruction }}</em>
+        </li>
+{% endfor %}
+</ul>
