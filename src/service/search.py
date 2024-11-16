@@ -19,10 +19,10 @@ class BaseVectorSearch(ABC):
         self.embeddings = embeddings
         self.model = model
 
-    def _query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, float]]:
+    def _query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, int, float]]:
         raise NotImplementedError()
 
-    def query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, float]]:
+    def query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, int, float]]:
         return self._query(query_string, top_k)
 
 
@@ -31,7 +31,7 @@ class FloatVectorSearch(BaseVectorSearch):
     def __init__(self, recipe_repo: AbstractRecipeRepo, embeddings: tensor, model:SentenceTransformer):
         super().__init__(recipe_repo, embeddings, model)
 
-    def _query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, float]]:
+    def _query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, int, float]]:
 
         query_embedding = self.model.encode(query_string)
 
@@ -40,10 +40,7 @@ class FloatVectorSearch(BaseVectorSearch):
 
         recipes = self.recipe_repo.list_recipes(indices)
 
-        data = []
-        for score, recipe in zip(scores, recipes):
-            data.append((recipe, score))
-        return data
+        return zip(recipes, indices, scores)
 
     
 class BinaryVectorSearch(BaseVectorSearch):
@@ -67,7 +64,7 @@ class BinaryVectorSearch(BaseVectorSearch):
         else:
             self.binary_embeddings = embeddings
 
-    def _query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, float]]:
+    def _query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, int, float]]:
         
         query_embeddings = self.model.encode([query_string], normalize_embeddings=True)
 
@@ -98,16 +95,11 @@ class BinaryVectorSearch(BaseVectorSearch):
         indices = [entry["corpus_id"] for entry in results[0]]
         scores = [entry["score"] for entry in results[0]]
         recipes = self.recipe_repo.list_recipes(indices)
-
-        data = []
-        for score, recipe in zip(scores, recipes):
-            data.append((recipe, score))
-        return data
+        return zip(recipes, indices, scores)
 
 if __name__ == "__main__":
 
     import time
-    import pickle
     from src.service.db import RecipeRepoJSON, RecipeRepoSQLite
 
     try:
@@ -129,6 +121,6 @@ if __name__ == "__main__":
         query = input("Enter a query: ")
         start = time.time()
         items = searcher.query(query)
-        for recipe, score in items:
+        for recipe, index, score in items:
             print(f"{recipe.title} {score:.4f}")
         print(f"Query ran in: {time.time() - start}s")

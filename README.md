@@ -99,17 +99,22 @@ Looking into it though, the word hari had serendipitous meanings in other langua
 [Hari (Sanskrit: हरि) is among the primary epithets of the Hindu preserver deity Vishnu, meaning 'the one who takes away' (sins).[1] It refers to the one who removes darkness and illusion, the one who removes all obstacles to spiritual progress.](https://en.wikipedia.org/wiki/Hari) 
 Ok maybe this one is a bit of a stretch, but Hari Recipes removes all of the obstacles (SEO blogspam and LLM spam) to spiritual progress (finding a recipe for Szechuan Pork Ribs).
 
-Hari also sounds like "Hurry" which describes what I want from a recipe search experience. I don't want to scroll through 54 paragraphs about grandma's southern porch swing. I want to know how much sugar goes into sweet tea, dammit.
+Hari also sounds like "Hurry" which describes what I want from a recipe search experience. I don't want to click through 30 different popups and cookie consent forms. [I just want to know the ratio of sugar to water for the love of God.](https://www.youtube.com/shorts/rOXt7HDCn2o)
 
 But really, I just like the way it sounds.
 
 
 
 #### TODO
+<!-- https://realpython.com/primer-on-jinja-templating/#render-your-first-jinja-template -->
 - [ ] add templates for routes
+    - [x] recipe list template
     - [ ] home template with search bar
-    - [ ] recipe list template
+    - [ ] re-use search bar from home template
     - [ ] recipe detail template
+    - [ ] slight CSS styling to make it look less shitty
+<!-- http://bettermotherfuckingwebsite.com/ -->
+<!-- https://evenbettermotherfucking.website/ -->
 - [ ] format with ruff
 - [ ] cleanup + docs
 

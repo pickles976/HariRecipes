@@ -7,11 +7,13 @@ import logging
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 from sentence_transformers import SentenceTransformer
 
 from src.recipe_data import RecipeData
 from src.service.db import RecipeRepoSQLite
 from src.service.search import FloatVectorSearch, BinaryVectorSearch
+from src.service.templating import home_template, query_results_template
 from src.common import load_binary_embeddings, load_full_embeddings
 
 LOG_LEVEL = os.getenv("LOG_LEVEL", default="INFO")
@@ -47,26 +49,16 @@ else:
 
 app = FastAPI()
 
-# TODO: home page
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 async def home():
-    return {"message": "Hello World"}
+    return home_template()
 
-@app.get("/recipe_query/{query}/{num_items}")
+@app.get("/recipe_query/{query}/{num_items}", response_class=HTMLResponse)
 async def recipe_query(query, num_items: int = 20):
-
     start = time.time()
     top_k = min(num_items, MAX_RESULTS)
     data = vector_search.query(query_string=query, top_k=top_k)
-
-    def format(item: tuple[RecipeData, float]) -> dict:
-        return {
-            "title": item[0].model_dump()["title"],
-            "score": item[1] 
-        }
     logger.debug(f"Got {top_k} results in {time.time() - start:.3f}s")
-    
-    # TODO: template
-    return {"recipes": [format(item) for item in data]}
+    return query_results_template(data)
 
 # TODO: Recipe detail page

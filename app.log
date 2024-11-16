@@ -47,3 +47,239 @@ INFO:app:FLOAT_32_SEARCH: 0
 INFO:app:BINARY_EMBEDDINGS: 1
 INFO:app:CUDA: 0
 INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:watchfiles.main:265 changes detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:61 changes detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:257 changes detected
+INFO:watchfiles.main:19 changes detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:9 changes detected
+INFO:watchfiles.main:8 changes detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:15 changes detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:5 changes detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:5 changes detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:5 changes detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:2 changes detected
+INFO:watchfiles.main:5 changes detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:5 changes detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:5 changes detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:5 changes detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:5 changes detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:5 changes detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:5 changes detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:5 changes detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:5 changes detected
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:6 changes detected
+INFO:watchfiles.main:5 changes detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:2 changes detected
+INFO:watchfiles.main:5 changes detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:6 changes detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:6 changes detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:6 changes detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:5 changes detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:5 changes detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:app:FLOAT_32_SEARCH: 0
+INFO:app:BINARY_EMBEDDINGS: 1
+INFO:app:CUDA: 0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO:watchfiles.main:5 changes detected
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:3 changes detected
+INFO:watchfiles.main:2 changes detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected
+INFO:watchfiles.main:1 change detected

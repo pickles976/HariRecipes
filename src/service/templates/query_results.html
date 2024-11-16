@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Results</title>
+</head>
+
+<body>
+  <h1>Results</h1>
+  <ul>
+  {% for recipe, index, score in recipes %}
+    <li>
+      <a href="{{base_url}}/{{index}}"><em>{{ recipe.title }}:</em>{{'%0.2f'|format(score)}}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</body>
+</html>
