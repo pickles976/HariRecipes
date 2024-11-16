@@ -112,11 +112,8 @@ But really, I just like the way it sounds.
 
 
 #### TODO
-- [ ] cleanup + docs
-
-- [ ] load tests with locust
 - [ ] get working on laptop
-- [ ] ask someone else for help testing locally
+- [ ] add doc info
 
 - [ ] host on digitalocean
 - [ ] get working
