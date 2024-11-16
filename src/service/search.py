@@ -69,7 +69,7 @@ class BinaryVectorSearch(BaseVectorSearch):
 
     def _query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, float]]:
         
-        query_embeddings = model.encode([query_string], normalize_embeddings=True)
+        query_embeddings = self.model.encode([query_string], normalize_embeddings=True)
 
         if self.has_float_embeddings:
             results, search_time, self.corpus_index = semantic_search_faiss(
@@ -77,7 +77,7 @@ class BinaryVectorSearch(BaseVectorSearch):
                 corpus_index=self.corpus_index,
                 corpus_embeddings=self.binary_embeddings if self.corpus_index is None else None,
                 corpus_precision=self.corpus_precision,
-                top_k=20,
+                top_k=top_k,
                 calibration_embeddings=self.embeddings,
                 rescore=self.corpus_precision != "float32",
                 rescore_multiplier=4,
@@ -90,7 +90,7 @@ class BinaryVectorSearch(BaseVectorSearch):
                 corpus_index=self.corpus_index,
                 corpus_embeddings=self.binary_embeddings if self.corpus_index is None else None,
                 corpus_precision=self.corpus_precision,
-                top_k=20,
+                top_k=top_k,
                 exact=True,
                 output_index=True,
             )

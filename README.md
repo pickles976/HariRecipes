@@ -1,4 +1,4 @@
-# Recipes Offline
+# Hari Recipes 
 
 A database of recipes from the top recipe sites, with all the junk removed, organized and searchable.
 Inspired by: [https://www.justtherecipe.com/](https://www.justtherecipe.com/)
@@ -31,7 +31,7 @@ docker compose build
 
 ## Developer Tools
 
-This project has only been tested for 3.12.7
+This project has only been tested for Python 3.12.7 and is not guaranteed to work on other systems/versions.
 
 #### Crawler
 
@@ -75,9 +75,11 @@ python -m src.service.db
 
 # Performance
 
-To get this project to run on smaller VMs, we need to conserve memory usage. The first memory-saving feature is to put our recipe data into a SQLite file that can live on-disk. Query speed with batching is slower than reading from a list in-memory, but negligible compared to the time taken up by the similarity search.
+To get this project to run on smaller VMs, we need to restrict memory usage. The first memory-saving feature is to put our recipe data into a SQLite file that can live on-disk. Query speed with batching is slower than reading from a list in-memory, but negligible compared to the time taken up by the similarity search.
 
-The second thing we can do is decrease the precision of our vector embeddings. The embeddings are `float32` by default. We can quantize these to binary without [losing much accuracy](https://emschwartz.me/binary-vector-embeddings-are-so-cool/). This also gives us a 100x speedup in search. However, keeping the full-sized embeddings in memory for rescoring takes up about 500MB. We can skip the rescoring step, but this affects our accuracy quite a bit. The most relevant search result wont always be at the top now. Increasing the number of search results can help, but it's not as convenient for users. However, my goal for deployment is to get this to fit on a $5 Digital Ocean droplet, so the user will have to suffer.  
+The second thing we can do is decrease the precision of our vector embeddings. The embeddings are `float32` by default. We can quantize these to binary without [losing much accuracy](https://emschwartz.me/binary-vector-embeddings-are-so-cool/). This also gives us a 100x speedup in search.  
+
+Keeping the full-sized embeddings in memory for rescoring takes up about 500MB. We can skip the rescoring step, but this affects our accuracy quite a bit. The most relevant search result wont always be at the top now. Increasing the number of search results can help, but it's not as convenient for users. However, my goal for deployment is to get this to fit on a $5 Digital Ocean droplet, so the user will have to suffer unless they decide to self-host (Consider this the second punishment).
 
 |                 | Memory Usage |
 |-----------------|--------------|
@@ -104,17 +106,20 @@ But really, I just like the way it sounds.
 
 
 #### TODO
-- [x] fastapi 
-- [ ] search api working
 - [ ] add templates for routes
-- [ ] get this working
-- [ ] add basic configuration with .env file
+    - [ ] home template with search bar
+    - [ ] recipe list template
+    - [ ] recipe detail template
+- [ ] format with ruff
 - [ ] cleanup + docs
 
 - [ ] dockerized api
     - [ ] upgrade distro to WSL2
     - [ ] get working
+- [ ] add basic configuration with .env file in docker compose
 - [ ] load tests with locust
+- [ ] get working on laptop
+- [ ] ask someone else for help testing locally
 
 - [ ] host on digitalocean
 - [ ] get working
