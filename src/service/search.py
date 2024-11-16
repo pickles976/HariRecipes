@@ -1,6 +1,6 @@
 from src.recipe_data import RecipeData
-from src.service.db import RecipeRepo
-from src.common import EMBEDDINGS_FILENAME
+from src.service.db import AbstractRecipeRepo
+from src.common import EMBEDDINGS_FILENAME, BINARY_EMBEDDINGS_FILENAME
 
 import torch
 from torch import tensor
@@ -48,34 +48,52 @@ class FloatVectorSearch(VectorSearch):
     
 class BinaryVectorSearch(VectorSearch):
 
+    has_float_embeddings: bool
     binary_embeddings: tensor
     corpus_precision: str
 
-    def __init__(self, recipe_repo: RecipeRepo, embeddings: tensor, model:SentenceTransformer):
+    def __init__(self, recipe_repo: AbstractRecipeRepo, embeddings: tensor, model:SentenceTransformer):
         super().__init__(recipe_repo, embeddings, model)
-        self.corpus_precision = "ubinary"
-        self.binary_embeddings = quantize_embeddings(
-            self.embeddings, 
-            precision=self.corpus_precision
-        )
+
         self.corpus_index = None
+        self.corpus_precision = "ubinary"
+
+        # Check if we provided full-precision embeddings
+        self.has_float_embeddings = self.embeddings.dtype == torch.float32
+        print(f"Loaded embeddings with precision level: {self.embeddings.dtype}")
+
+        if self.has_float_embeddings:
+            self.binary_embeddings = quantize_embeddings(self.embeddings, precision=self.corpus_precision)
+        else:
+            self.binary_embeddings = embeddings
 
     def _query(self, query_string: str, top_k:int = 20) -> list[tuple[RecipeData, float]]:
         
         query_embeddings = model.encode([query_string], normalize_embeddings=True)
 
-        results, search_time, self.corpus_index = semantic_search_faiss(
-            query_embeddings,
-            corpus_index=self.corpus_index,
-            corpus_embeddings=self.binary_embeddings if self.corpus_index is None else None,
-            corpus_precision=self.corpus_precision,
-            top_k=20,
-            calibration_embeddings=self.embeddings,
-            rescore=self.corpus_precision != "float32",
-            rescore_multiplier=4,
-            exact=True,
-            output_index=True,
-        )
+        if self.has_float_embeddings:
+            results, search_time, self.corpus_index = semantic_search_faiss(
+                query_embeddings,
+                corpus_index=self.corpus_index,
+                corpus_embeddings=self.binary_embeddings if self.corpus_index is None else None,
+                corpus_precision=self.corpus_precision,
+                top_k=20,
+                calibration_embeddings=self.embeddings,
+                rescore=self.corpus_precision != "float32",
+                rescore_multiplier=4,
+                exact=True,
+                output_index=True,
+            )
+        else:
+            results, search_time, self.corpus_index = semantic_search_faiss(
+                query_embeddings,
+                corpus_index=self.corpus_index,
+                corpus_embeddings=self.binary_embeddings if self.corpus_index is None else None,
+                corpus_precision=self.corpus_precision,
+                top_k=20,
+                exact=True,
+                output_index=True,
+            )
 
         indices = [entry["corpus_id"] for entry in results[0]]
         scores = [entry["score"] for entry in results[0]]
@@ -101,6 +119,9 @@ if __name__ == "__main__":
 
     with open(EMBEDDINGS_FILENAME, 'rb') as handle:
         embeddings = pickle.load(handle)
+
+    # with open(BINARY_EMBEDDINGS_FILENAME, 'rb') as handle:
+    #     embeddings = pickle.load(handle)
 
     model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 

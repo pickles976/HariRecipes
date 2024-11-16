@@ -23,7 +23,7 @@ docker compose up
 Windows does not support unzipping .gz files from the command line. You will need
 to use a third-party GUI tool like [7zip](https://7-zip.org/download.html) (consider this your punishment for using Windows)  
 
-Manually unzip `./src/data/recipes_validated.json.gz`
+Manually unzip `./data/recipes.sqlite.gz`
 
 ```shell
 docker compose build
@@ -55,8 +55,20 @@ python -m src.tools.validate_recipes
 #### CLI Search
 
 ```shell 
-python -m src.tools.search.search
+python -m src.service.search
 ```
+
+# Performance
+
+To get this project to run on smaller VMs, we need to conserve memory usage. The first memory-saving feature is to put our recipe data into a SQLite file that can live on-disk. Query speed with batching is slower than reading from a list in-memory, but negligible compared to the time taken up by the similarity search.
+
+The second thing we can do is decrease the precision of our vector embeddings. The embeddings are `float32` by default. We can quantize these to binary without [losing much accuracy](https://emschwartz.me/binary-vector-embeddings-are-so-cool/). This also gives us a 100x speedup in search. However, keeping the full-sized embeddings in memory for rescoring takes up about 500MB. We can skip the rescoring step, but this affects our accuracy quite a bit. The most relevant search result wont always be at the top now. Increasing the number of search results can help, but it's not as convenient for users. However, my goal for deployment is to get this to fit on a $5 Digital Ocean droplet, so the user will have to suffer.  
+
+|                 | Memory Usage |
+|-----------------|--------------|
+| In-Memory       | 4.4GB        |
+| SQLite float32  | 0.84GB       |
+| SQLite binary   | 0.36GB       |
 
 ### Why Hari?
 
@@ -77,29 +89,19 @@ But really, I just like the way it sounds.
 
 
 #### TODO
-- [x] sqlite db for lower RAM usage
-- [x] create a json-based repo class
-- [x] refactor search to take repo class via DI
-
-- [ ] move data folder out of SRC
-- [ ] pull out common stuff
-
-- [ ] fastapi wrapper
+- [ ] fastapi 
 - [ ] dockerized api
 - [ ] search api working
+- [ ] add environment variables and .env file for app configuration
+
 - [ ] add templates for routes
 - [ ] get this working
 - [ ] add basic configuration with .env file
 - [ ] cleanup + docs
 - [ ] load tests with locust
 
-- [ ] cloudflare tunnel on Raspberry pi
+- [ ] host on digitalocean
 - [ ] get working
 - [ ] configure SSL
 - [ ] test
 - [ ] release
-
-# Performance
-
-In-memory 4.4GB RAM usage
-SQLite XGB RAM usage
