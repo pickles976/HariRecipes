@@ -89,15 +89,16 @@ But really, I just like the way it sounds.
 
 
 #### TODO
-- [ ] fastapi 
-- [ ] dockerized api
+- [x] fastapi 
 - [ ] search api working
-- [ ] add environment variables and .env file for app configuration
-
 - [ ] add templates for routes
 - [ ] get this working
 - [ ] add basic configuration with .env file
 - [ ] cleanup + docs
+
+- [ ] dockerized api
+    - [ ] upgrade distro to WSL2
+    - [ ] get working
 - [ ] load tests with locust
 
 - [ ] host on digitalocean
