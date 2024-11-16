@@ -10,7 +10,7 @@ field_set = set(fields)
 nutrient_fields = ["calories", "fatContent", "saturatedFatContent", "carbohydrateContent", "sugarContent", "fiberContent", "proteinContent", "sodiumContent"]
 
 print("Loading json...")
-with open("./src/data/recipes.json", "r") as f:
+with open("./data/recipes.json", "r") as f:
     recipes = json.load(f)["recipes"]
 
 print("Grabbing keys...")
@@ -50,5 +50,5 @@ for i in tqdm(range(len(recipes))):
     valid_recipes.append(RecipeData(**item))
 
 print("Saving json...")
-with open("./src/data/recipes_validated.json", "w") as f:
+with open("./data/recipes_validated.json", "w") as f:
     json.dump({"recipes": [item.model_dump() for item in valid_recipes]}, f)

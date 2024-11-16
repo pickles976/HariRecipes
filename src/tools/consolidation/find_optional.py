@@ -4,7 +4,7 @@ from collections import Counter
 
 
 print("Loading json...")
-with open("./src/data/recipes_validated.json", "r") as f:
+with open("./data/recipes_validated.json", "r") as f:
     recipes = json.load(f)["recipes"]
 
 cnt = Counter()

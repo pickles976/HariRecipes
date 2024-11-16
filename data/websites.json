@@ -1,0 +1,466 @@
+{
+    "sources": [
+        {
+            "url": "https://www.101cookbooks.com",
+            "root_url": "https://www.101cookbooks.com",
+            "ignore": [
+                "ingredient"
+            ]
+        },
+        {
+            "url": "https://www.abuelascounter.com/",
+            "root_url": "https://www.abuelascounter.com/recipe-index/"
+        },
+        {
+            "url": "http://www.afghankitchenrecipes.com/",
+            "root_url": "http://www.afghankitchenrecipes.com/",
+            "recipe_prefix": "http://www.afghankitchenrecipes.com/recipe/",
+            "ignore": ["wp-content", "ingredient"]
+        },
+        {
+            "url": "https://www.aldi.us/",
+            "root_url": "https://www.aldi.us/recipes/",
+            "recipe_prefix": "https://www.aldi.us/recipes/",
+            "ignore": [
+                "corporate",
+                "weekly",
+                "fileadmin",
+                "stores",
+                "#",
+                "about-us",
+                "careers",
+                "contact",
+                "products",
+                "featured",
+                "about-aldi",
+                "com.au",
+                "product",
+                "results",
+                "cart",
+                "terms-of-use",
+                ".be",
+                ".com",
+                "account",
+                "site-map",
+                "online"
+            ]
+        },
+        {
+            "url": "https://www.allrecipes.com",
+            "root_url": "https://www.allrecipes.com/recipes/",
+            "recipe_prefix": "https://www.allrecipes.com/recipe",
+            "recipe_schema": "allrecipes-schema",
+            "ignore": [
+                "authentication",
+                "ingredient"
+            ]
+        },
+        {
+            "url": "https://barefeetinthekitchen.com/",
+            "root_url": "https://barefeetinthekitchen.com/",
+            "recipe_schema": "yoast-schema-graph",
+            "ignore": ["#", "cdn", "swpmtx", "how", "wprm", "wp-content", ".html", "little-things"]
+        },
+        {
+            "url": "https://barefootcontessa.com/",
+            "root_url": "https://barefootcontessa.com/recipes",
+            "recipe_schema": "yoast-schema-graph",
+            "recipe_prefix": "https://barefootcontessa.com/recipes",
+            "ignore": ["search", "inas-world", "print", "shop"]
+        },
+        {
+            "url": "https://bbcgoodfood.com/",
+            "root_url": "https://www.bbcgoodfood.com/recipes",
+            "ignore": ["collection", "glossary", "howto", "review"]
+        },
+        {
+            "url": "https://bettycrocker.com/",
+            "root_url": "https://www.bettycrocker.com/recipes",
+            "ignore": ["user-profile", "products", "how-to"]
+        },
+        {
+            "url": "https://bigoven.com/",
+            "root_url": "https://www.bigoven.com/recipes/",
+            "recipe_prefix": "https://www.bigoven.com/recipe/",
+            "ignore": ["account", "article", "microadmin"]
+        },
+        {
+            "url": "https://bluejeanchef.com/",
+            "root_url": "https://bluejeanchef.com/recipes/",
+            "ignore": ["shop", "cooking-school", "product", "uploads", "comment"]
+        },
+        {
+            "url": "https://bonappetit.com/",
+            "root_url": "https://bonappetit.com/recipes/",
+            "recipe_prefix": "https://bonappetit.com//recipe/",
+            "ignore": ["culture", "podcast", "video", "restaurant", "story", "shop", "episode", "listen", "account"]
+        },
+        {
+            "url": "https://bongeats.com/",
+            "root_url": "https://bongeats.com/recipes/",
+            "recipe_prefix": "https://bongeats.com//recipe/",
+            "ignore": ["kitchen", "support"]
+        },
+        {
+            "url": "https://bowlofdelicious.com/",
+            "root_url": "https://bowlofdelicious.com/recipes/",
+            "ignore": ["shop", "comment"]
+        },
+        {
+            "url": "https://closetcooking.com/",
+            "root_url": "https://www.closetcooking.com/recipes/",
+            "ignore": ["shop", "comment", "cookbooks", "cdn-cgi", "wprm", "#respond"],
+            "recipe_schema": "yoast-schema-graph"
+        },
+        {
+            "url": "https://www.eatingwell.com/",
+            "root_url": "https://www.eatingwell.com/recipes/",
+            "ignore": ["login", "google", "authentication", "logout", "article"],
+            "recipe_schema": "eatingwell-schema"
+        },
+        {
+            "url": "https://countryliving.com/",
+            "root_url": "https://countryliving.com/food-drinks/",
+            "ignore": ["auth", "home-design", "search", "#", "about", "shopping", "diy-crafts", "life", "shop", "gardening"]
+        },
+        {
+            "url": "https://creativecanning.com/",
+            "root_url": "https://creativecanning.com/",
+            "ignore": ["search", "about"],
+            "recipe_schema": "mv-create-json-ld-recipe"
+        },
+        {
+            "url": "https://www.delish.com/",
+            "root_url": "https://www.delish.com/",
+            "ignore": ["news", "kitchen", "store", "auth", "search"]
+        },
+        {
+            "url": "https://eatsmarter.com/",
+            "root_url": "https://www.eatliverun.com/recipes/",
+            "ignore": ["live-smarter", "lose-weight", "videos", "search", "user"]
+        },
+        {
+            "url": "https://eatwhattonight.com/",
+            "root_url": "https://eatwhattonight.com/",
+            "ignore": ["feeds", "wp-content", "#", "wprm_print"]
+        },
+        {
+            "url": "https://www.errenskitchen.com/",
+            "root_url": "https://www.errenskitchen.com/",
+            "ignore": ["search", "video", "conversions"]
+        },
+        {
+            "url": "https://www.familyfoodonthetable.com/",
+            "root_url": "https://www.familyfoodonthetable.com/recipes/",
+            "ignore": ["search", "comment"]
+        },
+        {
+            "url": "https://fitslowcookerqueen.com",
+            "root_url": "https://fitslowcookerqueen.com",
+            "ignore": ["search", "comment"]
+        },
+        {
+            "url": "https://food.com/",
+            "root_url": "https://food.com/",
+            "ignore": ["search", "comment", "#questions"]
+        },
+        {
+            "url": "https://foodandwine.com/",
+            "root_url": "https://foodandwine.com/recipes/",
+            "ignore": ["search", "comment", "#questions", "login", "newsletters", "sweepstakes", "authentication", "relative", "cooking-techniques"]
+        },
+        {
+            "url": "https://www.foodfidelity.com/",
+            "root_url": "https://www.foodfidelity.com/",
+            "ignore": ["search", "#", "playlists", "layouts", "templates", "amazon", "wp-content", "wprm"]
+        },
+
+        {
+            "url": "https://www.foodnetwork.com/",
+            "root_url": "https://www.foodnetwork.com/recipes/",
+            "ignore": ["search", "#", "shows", "features", "articles", "profiles", "how-to", "shopping", "content", "video"]
+        },
+        {
+            "url": "https://www.foodrepublic.com/",
+            "root_url": "https://www.foodrepublic.com/category/recipes/",
+            "ignore": ["grocery", "#", "exclusives"]
+        },
+        {
+            "url": "https://www.gonnawantseconds.com/",
+            "root_url": "https://www.gonnawantseconds.com/recipes/",
+            "ignore": ["search", "login", "#", "subscriptions"]
+        },
+
+        {
+            "url": "https://goodfooddiscoveries.com/",
+            "root_url": "https://goodfooddiscoveries.com/recipes/",
+            "ignore": ["search", "wp-content", "#", "wprm"]
+        },
+        {
+            "url": "https://goodhousekeeping.com/",
+            "root_url": "https://www.goodhousekeeping.com/food-recipes/",
+            "ignore": ["beauty", "health", "home", "product", "life", "auth", "search"]
+        },
+        {
+            "url": "https://greatbritishchefs.com/",
+            "root_url": "https://www.greatbritishchefs.com/recipes",
+            "ignore": ["search", "login", "#", "shop", "competitions"]
+        },
+        {
+            "url": "http://www.grouprecipes.com/",
+            "root_url": "http://www.grouprecipes.com/",
+            "ignore": ["search", "login", "#", "ingredients", "comments", "people", "tag", "comment"]
+        },
+        {
+            "url": "https://www.hassanchef.com/",
+            "root_url": "https://www.hassanchef.com/",
+            "ignore": ["search", "login", "#"]
+        },
+        {
+            "url": "https://www.hersheyland.com/",
+            "root_url": "https://www.hersheyland.com/recipes",
+            "ignore": ["search", "login", "#", "product", "brands", "buy"]
+        },
+        {
+            "url": "https://im-worthy.com/",
+            "root_url": "https://im-worthy.com/recipes/",
+            "ignore": ["shop", "browse", "search", "login", "register", "auth"]
+        },
+        {
+            "url": "https://www.indianhealthyrecipes.com/",
+            "root_url": "https://www.indianhealthyrecipes.com/recipes/",
+            "ignore": ["shop", "browse", "search", "login", "register", "auth", "comment"]
+        },
+        {
+            "url": "https://jimcooksfoodgood.com/",
+            "root_url": "https://jimcooksfoodgood.com/",
+            "ignore": ["shop", "browse", "search", "login", "register", "auth", "comment"]
+        },
+        {
+            "url": "https://www.joshuaweissman.com/",
+            "root_url": "https://www.joshuaweissman.com/all-recipes/",
+            "recipe_prefix": "https://www.joshuaweissman.com/post/"
+        },
+        {
+            "url": "https://juliegoodwin.com.au/",
+            "root_url": "https://juliegoodwin.com.au/recipes/",
+            "ignore": ["shop", "browse", "search", "auth", "comment", "wp-content", "wprm"],
+            "recipe_schema": "yoast-schema-graph"
+        },
+        {
+            "url": "https://kennymcgovern.com/",
+            "root_url": "https://kennymcgovern.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.kingarthurbaking.com/",
+            "root_url": "https://www.kingarthurbaking.com/recipes",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "image"]
+        },
+        {
+            "url": "https://kristineskitchenblog.com/",
+            "root_url": "https://kristineskitchenblog.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://lovingitvegan.com/",
+            "root_url": "https://lovingitvegan.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.marthastewart.com/",
+            "root_url": "https://www.marthastewart.com/1505788/recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.mccormick.com/",
+            "root_url": "https://www.mccormick.com/recipes",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://minimalistbaker.com/",
+            "root_url": "https://minimalistbaker.com/recipe-index/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.myjewishlearning.com/",
+            "root_url": "https://www.myjewishlearning.com/category/eat/jewish-recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://mykitchen101en.com/",
+            "root_url": "https://mykitchen101en.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.myrecipes.com/",
+            "root_url": "https://www.myrecipes.com/",
+            "recipe_prefix": "https://www.myrecipes.com/recipe/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.number-2-pencil.com/",
+            "root_url": "https://www.number-2-pencil.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer"]
+        },
+        {
+            "url": "https://www.persnicketyplates.com/",
+            "root_url": "https://www.persnicketyplates.com/recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer"]
+        },
+        {
+            "url": "https://www.realsimple.com/",
+            "root_url": "https://www.realsimple.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
+
+        {
+            "url": "https://www.recipegirl.com/",
+            "root_url": "https://www.recipegirl.com/recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
+        {
+            "url": "https://recipes.timesofindia.com/",
+            "root_url": "https://recipes.timesofindia.com/recipes",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
+        {
+            "url": "https://recipetineats.com/",
+            "root_url": "https://www.recipetineats.com/recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
+        {
+            "url": "https://seriouseats.com/",
+            "root_url": "https://seriouseats.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
+        {
+            "url": "https://www.simplyrecipes.com/",
+            "root_url": "https://www.simplyrecipes.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
+        {
+            "url": "https://www.simplywhisked.com/",
+            "root_url": "https://www.simplywhisked.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy"]
+        },
+        {
+            "url": "https://southernliving.com/",
+            "root_url": "https://www.southernliving.com/recipes",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy", "print", "#respond"]
+        },
+        {
+            "url": "https://steamykitchen.com/",
+            "root_url": "https://steamykitchen.com/recipe-index/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy", "print", "#respond"]
+        },
+        {
+            "url": "https://tasty.co/",
+            "root_url": "https://tasty.co/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "customer", "privacy", "print", "#respond"]
+        },
+        {
+            "url": "https://www.thecookingguy.com/",
+            "root_url": "https://www.thecookingguy.com/search-recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "print"]
+        },
+        {
+            "url": "https://www.thepalatablelife.com/",
+            "root_url": "https://www.thepalatablelife.com/category/recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "print"]
+        },
+        {
+            "url": "https://www.thepioneerwoman.com/",
+            "root_url": "https://www.thepioneerwoman.com/food-cooking/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "life"]
+        },
+        {
+            "url": "https://www.thespruceeats.com/",
+            "root_url": "https://www.thespruceeats.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "life"]
+        },
+        {
+            "url": "https://www.thevintagemixer.com/",
+            "root_url": "https://www.thevintagemixer.com/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "reply", "respond"]
+        },
+        {
+            "url": "https://tidymom.net/",
+            "root_url": "https://tidymom.net/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm"]
+        },
+        {
+            "url": "https://www.zenbelly.com/",
+            "root_url": "https://www.zenbelly.com/recipes/",
+            "ignore": ["shop", "login", "register", "auth", "comment", "video", "wp-content", "wprm", "respond", "print"]
+        },
+        {
+            "url": "https://en.wikibooks.org/",
+            "root_url": "https://en.wikibooks.org/w/index.php?title=Category:Recipes&from=0",
+            "recipe_prefix": "https://en.wikibooks.org//wiki/Cookbook:",
+            "ignore": [
+                "talk", 
+                "userLogin", 
+                "edit", 
+                "auth", 
+                "info", 
+                "comment", 
+                "UserLogin", 
+                "Special", 
+                "content", 
+                "policy", 
+                "Requests",
+                "Tracking", 
+                "history", 
+                "redirect",
+                "Archive",
+                "Shortcut", 
+                "RFD",
+                "What",
+                "WIW",
+                "AT",
+                "mw-head",
+                "FAQ",
+                "HELP",
+                "Help",
+                "Sources",
+                "Wikibooks",
+                "search",
+                "Department",
+                "User",
+                "Template",
+                "File",
+                "Wikijunior", 
+                "Featured_items",
+                "until",
+                "oldid",
+                "subcat",
+                "filefrom",
+                "Wikimedia",
+                ":Book",
+                ":Subject",
+                ":Featured_books",
+                "Talk:",
+                "printable",
+                "Horticulture",
+                "Bartending",
+                "from",
+                "Pages_to_translate",
+                "Shelf",
+                "cite_note",
+                "Pages_transcluding_nonexistent_sections",
+                "Pages_needing_attention",
+                "Content_maintenance",
+                "Accuracy_disputes",
+                "pages_needing_work",
+                "Alphabetical",
+                "Cataloguing",
+                "cite-ref",
+                "cite_ref",
+                "Reference",
+                "reference"
+            ],
+            "subdomain": "en"
+        }
+    ]
+}
