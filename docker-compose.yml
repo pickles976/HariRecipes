@@ -27,8 +27,3 @@ services:
       PROXY_BACKEND: fastapi
       PROXY_PORT: 8000
       DOMAIN: ${DOMAIN}
-
-# Optional: If you need any additional networks
-networks:
-  fastapi-network:
-    driver: bridge
