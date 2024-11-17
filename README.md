@@ -99,6 +99,11 @@ export DOMAIN=app.example.org
 docker compose up
 ```
 
+There are some environment variables you can configure in the docker-compose file as well:
+- FLOAT_32_SEARCH -- default 0, enables search with full-precision vectors. Slow and memory intensive.
+- BINARY_EMBEDDINGS -- default 1, when enabled, rescoring of search matches is disabled. Less accurate results, but smaller memory footprint (by about 500MB)
+- CUDA -- defualt 0, enables CUDA usage
+
 # Performance
 
 To get this project to run on smaller VMs, we need to restrict memory usage. The first memory-saving feature is to put our recipe data into a SQLite file that can live on-disk. Query speed with batching is slower than reading from a list in-memory, but negligible compared to the time taken up by the similarity search.
