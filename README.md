@@ -75,8 +75,28 @@ python -m src.service.db
 
 #### Web API
 
+Run dev server
+
 ```
 fastapi dev ./src/service/app.py
+```
+
+API should be available at `http://localhost:8000`
+
+#### Deployment
+
+This website is extremely easy to host on the web as well. [Caddy](https://github.com/caddyserver/caddy) makes it stupidly easy to configure SSL. You just need an A record pointing to your public IP. 
+
+```bash
+git clone https://github.com/pickles976/HariRecipes.git
+# download files
+sh ./download_files.sh
+# open ports
+sh ./port_configure.sh
+# set domain name
+export DOMAIN=app.example.org
+# run docker container
+docker compose up
 ```
 
 # Performance
@@ -112,11 +132,4 @@ But really, I just like the way it sounds.
 
 
 #### TODO
-- [ ] host on digitalocean
-- [ ] get working
-- [ ] configure SSL
-- [ ] test
-- [ ] release
-- [ ] remove docs images, make blog post instead
-
 - [ ] go back and clean up the recipes list, remove any recipes that don't have real instructions or ingredients lists
