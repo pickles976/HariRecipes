@@ -112,9 +112,6 @@ But really, I just like the way it sounds.
 
 
 #### TODO
-- [ ] get working on laptop
-- [ ] add doc info
-
 - [ ] host on digitalocean
 - [ ] get working
 - [ ] configure SSL
