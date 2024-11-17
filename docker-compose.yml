@@ -1,16 +1,32 @@
 version: "3.9"
 
 services:
-  fastapi-service:
+  fastapi:
     build:
       .
     ports:
-      - "8000:8000"          # Map port 8000 on host to 8000 in the container
+      - 8000:8000        # Map port 8000 on host to 8000 in the container
     env_file:
       .env
     networks:
       - fastapi-network      # Define a network if needed (optional)
     restart: unless-stopped  # Automatically restart the container unless it is manually stopped
+    
+  caddy:
+    container_name: caddy
+    restart: unless-stopped
+    build:
+      context: ./src/caddy
+      dockerfile: ./Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - fastapi
+    environment:
+      PROXY_BACKEND: fastapi
+      PROXY_PORT: 8000
+      DOMAIN: ${DOMAIN}
 
 # Optional: If you need any additional networks
 networks:

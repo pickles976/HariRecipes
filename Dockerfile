@@ -7,4 +7,6 @@ RUN pip install -r requirements.txt
 
 COPY ./src ./src
 
+EXPOSE 8000
+
 CMD ["fastapi", "run", "./src/service/app.py"]
