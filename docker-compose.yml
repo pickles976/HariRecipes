@@ -8,8 +8,6 @@ services:
       - 8000:8000        # Map port 8000 on host to 8000 in the container
     env_file:
       .env
-    networks:
-      - fastapi-network      # Define a network if needed (optional)
     restart: unless-stopped  # Automatically restart the container unless it is manually stopped
     
   caddy:
