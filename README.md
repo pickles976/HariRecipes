@@ -135,6 +135,34 @@ Hari also sounds like "Hurry" which describes what I want from a recipe search e
 But really, I just like the way it sounds.
 
 
+### Recipe Cleanup
+
+After sharing this project, I was linked to [an archive](https://old.reddit.com/r/opendirectories/comments/dsznin/50_gb_directory_of_cooking_recipes/)
+of plaintext recipes curated from the old internet.
+
+The 20GB of cleaned recipes is available via torrent.
+
+```
+magnet:?xt=urn:btih:b0639670e3666ffc04cfbf73d594804d919936f6&dn=Recipes
+```
+
+To clean up these recipes + my recipes, I am going to need more heavy-duty NLP, so this will probably require an LLM.
 
 #### TODO
-- [ ] go back and clean up the recipes list, remove any recipes that don't have real instructions or ingredients lists
+- [x] download recipes
+- [ ] document the format of the new recipes
+- [ ] consolidate both sets of recipes
+- [ ] get a local LLM model running on RTX 3070
+- [ ] get a prompt for filtering out spam/garbage
+- [ ] filter out spam and garbage
+- [ ] get a prompt for formatting recipes as json
+- [ ] format all recipes as json
+- [ ] figure out how small we can get our organized recipe archive (our cloud instance only has 25GB storage!)
+- [ ] generate embeddings
+- [ ] test out search, how much slower is it with all the new recipes?
+- [ ] generate a refined dataset if needed
+
+- [ ] refactor app to work with new stuff
+
+- [ ] optimize dockerfile for space usage
+- [ ] add condition to Dockerfile to download recipes to container if none exist on local fs, saving space
