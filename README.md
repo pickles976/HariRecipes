@@ -150,13 +150,19 @@ To clean up these recipes + my recipes, I am going to need more heavy-duty NLP, 
 
 #### TODO
 - [x] download recipes
-- [ ] document the format of the new recipes
-- [ ] consolidate both sets of recipes
+- [x] isolate all .html and .txt files
+
+- [ ] come up with a proprietary recipe format
+- [ ] attempt to convert all recipes to this format using an llm
 - [ ] get a local LLM model running on RTX 3070
 - [ ] get a prompt for filtering out spam/garbage
-- [ ] filter out spam and garbage
-- [ ] get a prompt for formatting recipes as json
+- [ ] filter spam and garbage out of current recipe format
+- [ ] get a prompt for re-formatting json recipes
 - [ ] format all recipes as json
+
+- [ ] get a prompt for re-formatting .txt files into json
+- [ ] format all recipes as json
+
 - [ ] figure out how small we can get our organized recipe archive (our cloud instance only has 25GB storage!)
 - [ ] generate embeddings
 - [ ] test out search, how much slower is it with all the new recipes?
