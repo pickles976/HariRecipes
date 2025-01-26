@@ -4,7 +4,7 @@ import time
 import requests
 from requests import Response
 
-CHECKPOINT = 1000
+CHECKPOINT = 3000
 url = "http://127.0.0.1:1234/v1/chat/completions"
 headers = {"Content-Type": "application/json"}
 
@@ -26,6 +26,7 @@ def is_valid(response: Response) -> bool:
     return True
 
 def save_json(items: list[dict]):
+    print("SAVING JSON...")
     with open(f"./data/cleaned/{len(items)}.json", "w") as f:
         json.dump({
             "recipes": items
