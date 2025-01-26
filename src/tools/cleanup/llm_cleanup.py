@@ -1,5 +1,6 @@
 import re
 import json
+import time
 import requests
 from requests import Response
 
@@ -41,12 +42,13 @@ items = []
 for i, recipe in enumerate(all_recipes):
 
     print(recipe["title"])
+    start = time.time()
     res = requests.post(url=url, json=format(recipe), headers=headers)
     if res.status_code != 200:
         raise Exception(f"Error: {res.status_code} {res.content}")
     
     valid = is_valid(response=res)
-    print(str(valid).upper())
+    print(f"{str(valid).upper()} {time.time() - start:.2f}")
     if valid:
         items.append(recipe)
     
