@@ -57,6 +57,11 @@ Make sure all recipes conform to the Pydantic RecipeData model, saves them to `r
 python -m src.tools.validate_recipes
 ```
 
+I used an llm to clean this up:
+```shell
+python -m src.tools.cleanup.llm_cleanup
+```
+
 #### Search
 
 Test out the search functionality in the commandline.
@@ -174,3 +179,7 @@ To clean up these recipes + my recipes, I am going to need more heavy-duty NLP, 
 
 - [ ] optimize dockerfile for space usage
 - [ ] add condition to Dockerfile to download recipes to container if none exist on local fs, saving space
+
+```json
+{"title":"Udon Broth","canonical_url":"https://www.bigoven.com/recipe/udon-broth/21221","ingredient_groups":[{"ingredients":["3 tb Low sodium soy sauce","2 tb Mirin","4 c Dashi","2 tb Sake (rice wine)"],"purpose":null}],"instructions_list":["Combine all ingredients. Bring to a boil."],"author":"BigOven Cooks","image":"https://bigoven-res.cloudinary.com/image/upload/h_320,w_320,c_fill/recipe-no-image.jpg","language":"en","host":"bigoven.com","site_name":"BigOven.com","category":"Soups, Stews and Chili","cook_time":null,"cooking_method":null,"cuisine":null,"prep_time":null,"yields":"1 serving","total_time":90,"nutrients":{"calories":null,"fatContent":null,"saturatedFatContent": null,"carbohydrateContent":null,"sugarContent":null,"fiberContent":"0.33600000500679 g","proteinContent":null,"sodiumContent":null},"equipment":null,"description":null}
+```
