@@ -151,6 +151,8 @@ To clean up these recipes + my recipes, I am going to need more heavy-duty NLP, 
 #### TODO
 - [x] download recipes
 - [x] isolate all .html and .txt files
+- [ ] filter out all .txt files longer than 70 lines
+- [ ] how many recipes are we left with?
 
 - [ ] come up with a proprietary recipe format
 - [ ] attempt to convert all recipes to this format using an llm
