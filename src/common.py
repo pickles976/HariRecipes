@@ -3,7 +3,7 @@ import pickle
 from src.recipe_data import RecipeData
 
 SQLITE_FILENAME = "./data/recipes.sqlite"
-JSON_FILENAME = "./data/recipes_validated.json"
+JSON_FILENAME = "./data/recipes_cleaned.json"
 EMBEDDINGS_FILENAME = "./data/recipe_embeddings.pickle"
 BINARY_EMBEDDINGS_FILENAME = "./data/recipe_embeddings_binary.pickle"
 

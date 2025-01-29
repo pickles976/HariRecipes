@@ -20,7 +20,7 @@ from src.service.templating import (
 from src.common import load_binary_embeddings, load_full_embeddings
 
 # CONFIGURATION
-MAX_RESULTS = 250
+MAX_RESULTS = 1000
 LOG_LEVEL = os.getenv("LOG_LEVEL", default="DEBUG")
 DOMAIN = os.getenv("DOMAIN", default="http://localhost:8000")
 FLOAT_32_SEARCH = os.getenv("FLOAT_32_SEARCH", default=0)
@@ -71,14 +71,14 @@ async def favicon():
 
 
 @app.get("/recipe_query/", response_class=HTMLResponse)
-async def recipe_query(query, num_items: str = "20"):
+async def recipe_query(query, num_items: str = "50"):
     start = time.time()
 
     # Try to parse int
     try:
         num_items = int(num_items)
     except Exception:
-        num_items = 20
+        num_items = 50
 
     top_k = max(min(num_items, MAX_RESULTS), 10)
     data = vector_search.query(query_string=query, top_k=top_k)

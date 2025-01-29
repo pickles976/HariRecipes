@@ -154,32 +154,8 @@ magnet:?xt=urn:btih:b0639670e3666ffc04cfbf73d594804d919936f6&dn=Recipes
 To clean up these recipes + my recipes, I am going to need more heavy-duty NLP, so this will probably require an LLM.
 
 #### TODO
-- [x] download recipes
-- [x] isolate all .html and .txt files
-- [ ] filter out all .txt files longer than 70 lines
-- [ ] how many recipes are we left with?
-
-- [ ] come up with a proprietary recipe format
-- [ ] attempt to convert all recipes to this format using an llm
-- [ ] get a local LLM model running on RTX 3070
-- [ ] get a prompt for filtering out spam/garbage
-- [ ] filter spam and garbage out of current recipe format
-- [ ] get a prompt for re-formatting json recipes
-- [ ] format all recipes as json
-
-- [ ] get a prompt for re-formatting .txt files into json
-- [ ] format all recipes as json
-
-- [ ] figure out how small we can get our organized recipe archive (our cloud instance only has 25GB storage!)
-- [ ] generate embeddings
-- [ ] test out search, how much slower is it with all the new recipes?
-- [ ] generate a refined dataset if needed
-
-- [ ] refactor app to work with new stuff
-
-- [ ] optimize dockerfile for space usage
+- [x] clean up recipes with LLM
+- [x] re-generate data for program
 - [ ] add condition to Dockerfile to download recipes to container if none exist on local fs, saving space
-
-```json
-{"title":"Udon Broth","canonical_url":"https://www.bigoven.com/recipe/udon-broth/21221","ingredient_groups":[{"ingredients":["3 tb Low sodium soy sauce","2 tb Mirin","4 c Dashi","2 tb Sake (rice wine)"],"purpose":null}],"instructions_list":["Combine all ingredients. Bring to a boil."],"author":"BigOven Cooks","image":"https://bigoven-res.cloudinary.com/image/upload/h_320,w_320,c_fill/recipe-no-image.jpg","language":"en","host":"bigoven.com","site_name":"BigOven.com","category":"Soups, Stews and Chili","cook_time":null,"cooking_method":null,"cuisine":null,"prep_time":null,"yields":"1 serving","total_time":90,"nutrients":{"calories":null,"fatContent":null,"saturatedFatContent": null,"carbohydrateContent":null,"sugarContent":null,"fiberContent":"0.33600000500679 g","proteinContent":null,"sodiumContent":null},"equipment":null,"description":null}
-```
+- [ ] run on raspberry pi
+- [ ] see how we can host to the internet on raspberry pi

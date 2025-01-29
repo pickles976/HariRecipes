@@ -22,7 +22,7 @@ class HelloWorldUser(HttpUser):
     def query(self):
         first_word, second_word = get_random_item(first_words), get_random_item(second_words)
         query_str = f"{first_word} {second_word} {random.randint(0, 100_000)}"
-        num_items = random.randint(20, 250)
+        num_items = random.randint(50, 250)
         self.client.get(f"/recipe_query/?query={query_str}&num_items={num_items}")
 
     def on_start(self):
