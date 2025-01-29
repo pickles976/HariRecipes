@@ -1,5 +1,5 @@
 from src.recipe_data import data_to_str
-from common import read_recipe_json, EMBEDDINGS_FILENAME
+from src.common import read_recipe_json, EMBEDDINGS_FILENAME
 
 import time
 import pickle
