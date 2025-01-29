@@ -154,8 +154,5 @@ magnet:?xt=urn:btih:b0639670e3666ffc04cfbf73d594804d919936f6&dn=Recipes
 To clean up these recipes + my recipes, I am going to need more heavy-duty NLP, so this will probably require an LLM.
 
 #### TODO
-- [x] clean up recipes with LLM
-- [x] re-generate data for program
-- [ ] add condition to Dockerfile to download recipes to container if none exist on local fs, saving space
 - [ ] run on raspberry pi
 - [ ] see how we can host to the internet on raspberry pi
