@@ -49,14 +49,13 @@ def data_to_str(data: RecipeData) -> str:
     """Extract the relevant parts of a recipe into a string used for vector encoding."""
 
     ingredients = "Ingredients: \n"
-    for ingredient in data.ingredients:
-        ingredients += f"- {ingredient}\n"
+    for ingredient_group in data.ingredient_groups:
+        for ingredient in ingredient_group.ingredients:
+            ingredients += f"- {ingredient}\n"
 
     text = f"""
 {data.title}
-{ingredients}
-Instructions: 
-{data.instructions}"""
+{ingredients}"""
 
     if data.description:
         text += "\n"

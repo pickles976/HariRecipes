@@ -27,12 +27,12 @@ class BaseVectorSearch(ABC):
         self.model = model
 
     def _query(
-        self, query_string: str, top_k: int = 20
+        self, query_string: str, top_k: int = 50
     ) -> list[tuple[RecipeData, int, float]]:
         raise NotImplementedError()
 
     def query(
-        self, query_string: str, top_k: int = 20
+        self, query_string: str, top_k: int = 50
     ) -> list[tuple[RecipeData, int, float]]:
         return self._query(query_string, top_k)
 
@@ -47,7 +47,7 @@ class FloatVectorSearch(BaseVectorSearch):
         super().__init__(recipe_repo, embeddings, model)
 
     def _query(
-        self, query_string: str, top_k: int = 20
+        self, query_string: str, top_k: int = 50
     ) -> list[tuple[RecipeData, int, float]]:
         query_embedding = self.model.encode(query_string)
 
@@ -91,7 +91,7 @@ class BinaryVectorSearch(BaseVectorSearch):
             self.binary_embeddings = embeddings
 
     def _query(
-        self, query_string: str, top_k: int = 20
+        self, query_string: str, top_k: int = 50
     ) -> list[tuple[RecipeData, int, float]]:
         query_embeddings = self.model.encode([query_string], normalize_embeddings=True)
 

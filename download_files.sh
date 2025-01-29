@@ -2,7 +2,7 @@
 echo "Downloading full-sized embedding vectors..."
 curl -L "https://github.com/pickles976/HariRecipes/releases/download/data/recipe_embeddings.pickle" > ./data/recipe_embeddings.pickle
 
-echo "Downloading full-sized embedding vectors..."
+echo "Downloading Binarized embedding vectors..."
 curl -L  "https://github.com/pickles976/HariRecipes/releases/download/data/recipe_embeddings_binary.pickle" > ./data/recipe_embeddings_binary.pickle
 
 echo "Downloading sqlite file..."

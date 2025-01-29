@@ -57,6 +57,11 @@ Make sure all recipes conform to the Pydantic RecipeData model, saves them to `r
 python -m src.tools.validate_recipes
 ```
 
+I used an llm to clean this up:
+```shell
+python -m src.tools.cleanup.llm_cleanup
+```
+
 #### Search
 
 Test out the search functionality in the commandline.
@@ -135,6 +140,19 @@ Hari also sounds like "Hurry" which describes what I want from a recipe search e
 But really, I just like the way it sounds.
 
 
+### Recipe Cleanup
+
+After sharing this project, I was linked to [an archive](https://old.reddit.com/r/opendirectories/comments/dsznin/50_gb_directory_of_cooking_recipes/)
+of plaintext recipes curated from the old internet.
+
+The 20GB of cleaned recipes is available via torrent.
+
+```
+magnet:?xt=urn:btih:b0639670e3666ffc04cfbf73d594804d919936f6&dn=Recipes
+```
+
+To clean up these recipes + my recipes, I am going to need more heavy-duty NLP, so this will probably require an LLM.
 
 #### TODO
-- [ ] go back and clean up the recipes list, remove any recipes that don't have real instructions or ingredients lists
+- [ ] run on raspberry pi
+- [ ] see how we can host to the internet on raspberry pi
