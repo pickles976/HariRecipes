@@ -7,6 +7,8 @@ recipes.zip
 *.json.gz
 *.jar
 *.log
+*.sqlite
+*.sqlite.gz
 __pycache__
 local
 .vscode
