@@ -1,10 +1,11 @@
-beautifulsoup4==4.12.3
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==2.3.1+cpu
+sentence-transformers==3.3.0
 faiss-cpu==1.9.0
+beautifulsoup4==4.12.3
 fastapi==0.115.5
 fastapi-cli==0.0.5
 Jinja2==3.1.4
 pydantic==2.9.2
 recipe_scrapers==15.2.1
-torch==2.5.1
 tqdm==4.67.0
-sentence-transformers==3.3.0

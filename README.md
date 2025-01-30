@@ -123,6 +123,13 @@ Keeping the full-sized embeddings in memory for rescoring takes up about 500MB. 
 | SQLite float32  | 0.84GB       |
 | SQLite binary   | 0.36GB       |
 
+A majority of the container's size comes from PyTorch's cuda dependencies. So in our requirements.txt we'll add:
+```txt
+torch==2.3.1+cpu
+```
+
+If you want to use CUDA you'll have to change it to the normal version.
+
 ### Why Hari?
 
 "JustRecipes" was taken on Squarespace. I liked the idea of making a reference to Hari Seldon from Foundation, who works to preserve human knowledge in a big-ass encyclopedia.
